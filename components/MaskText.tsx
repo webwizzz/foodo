@@ -15,10 +15,10 @@ export function MaskText() {
 
   const animation = {
     initial: { y: "100%" },
-    enter: (i: number) => ({
+    enter: {
       y: "0",
-      transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1], delay: 0.075 * i }
-    })
+      transition: { duration: 0.75 }
+    }
   };
 
   return (
@@ -26,7 +26,6 @@ export function MaskText() {
       {phrases.map((phrase, index) => (
         <div key={index} className="overflow-hidden">
           <motion.p
-            custom={index}
             variants={animation}
             initial="initial"
             animate={isInView ? "enter" : "initial"}
