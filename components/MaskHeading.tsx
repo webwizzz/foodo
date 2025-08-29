@@ -12,10 +12,10 @@ export function MaskHeading() {
 
   const animation = {
     initial: { y: "100%" },
-    enter: (i: number) => ({
+    enter: {
       y: "0",
-      transition: { duration: 0.75, ease: "easeInOut", delay: 0.075 * i }
-    })
+      transition: { duration: 0.75 }
+    }
   };
 
   return (
@@ -23,7 +23,6 @@ export function MaskHeading() {
       {phrases.map((phrase, index) => (
         <div key={index} className="overflow-hidden">
           <motion.h2
-            custom={index}
             variants={animation}
             initial="initial"
             animate={isInView ? "enter" : "initial"}
