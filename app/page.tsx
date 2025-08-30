@@ -251,7 +251,6 @@ export default function HomePage() {
           <div className="flex items-center space-x-2">
             <HoverBorderGradient
               as="a"
-              href="#get-started"
               containerClassName="rounded-full"
               className="px-6 py-2 text-sm font-medium"
             >
@@ -285,7 +284,6 @@ export default function HomePage() {
               </Button>
               <HoverBorderGradient
               as="a"
-              href="#get-started"
               containerClassName="rounded-full"
               className="px-6 py-2 text-sm font-medium"
             >
