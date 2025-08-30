@@ -1,15 +1,18 @@
 "use client"
 
+import Clients from "@/components/Clients"
+import { Expfood } from "@/components/Expfood"
+import { Mockup } from "@/components/Mockup"
+import ShardBackgroundSection from "@/components/ShardBackgroundSection"
+import StatsSection from "@/components/StatsSection"
+import  { HeroCard } from "@/components/HeroCard"
 import { Button } from "@/components/ui/button"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
-import{Expfood} from "@/components/Expfood"
 import { motion, useInView } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useEffect, useLayoutEffect, useRef } from "react"
-import { Mockup } from "@/components/Mockup"
-import StatsSection from "@/components/StatsSection"
-import Clients from "@/components/Clients"
+import Carousel from "@/components/Carousel"
 
 
 export default function HomePage() {
@@ -372,9 +375,55 @@ export default function HomePage() {
       <section className="hero">
         <Mockup />
       </section>
-      <StatsSection/>
-      <Clients/>
 
+  <StatsSection/>
+  <Clients/>
+  <ShardBackgroundSection />
+        <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
+        <div className="grid gap-4 md:grid-cols-2">
+          <HeroCard
+            variant="light"
+            label="AI Website"
+            heading="Fast, smart websites that let your guests explore, order, and book"
+            cta="Book a Demo"
+            tag="Smart Menu"
+            imageSrc="r1.png"
+            imageOnly
+          />
+          <HeroCard
+            variant="dark"
+            label="AI Website"
+            heading="Fast, smart websites that let your guests explore, order, and book"
+            cta="Book a Demo"
+            tag="Simple Payment"
+            imageSrc="/r2.png"
+            imageOnly
+          />
+        </div>
+      </div>
+       <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
+        <div className="grid gap-4 md:grid-cols-2">
+          <HeroCard
+            variant="light"
+            label="AI Website"
+            heading="Fast, smart websites that let your guests explore, order, and book"
+            cta="Book a Demo"
+            tag="Smart Menu"
+            imageSrc="l1.png"
+            imageOnly
+          />
+          <HeroCard
+            variant="dark"
+            label="AI Website"
+            heading="Fast, smart websites that let your guests explore, order, and book"
+            cta="Book a Demo"
+            tag="Simple Payment"
+            imageSrc="/l2.png"
+            imageOnly
+          />
+        </div>
+      </div>
+      <Carousel />
       </div>
     </div>
   );
