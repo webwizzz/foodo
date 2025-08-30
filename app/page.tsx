@@ -10,6 +10,7 @@ import ShardBackgroundSection from "@/components/ShardBackgroundSection"
 import StatsSection from "@/components/StatsSection"
 import { Button } from "@/components/ui/button"
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
+import VideoSection from "@/components/VideoSection"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
 import { motion, useInView } from "framer-motion"
 import gsap from "gsap"
@@ -162,7 +163,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div ref={smoothWrapperRef} className="min-h-screen bg-black overflow-x-hidden text-white font-sans">
+  <div ref={smoothWrapperRef} className="min-h-screen overflow-x-clip bg-black text-white font-sans">
       <div ref={smoothContentRef}>
         {/* Navigation Header */}
         <header className="flex items-center justify-between px-6 py-4 lg:px-12">
@@ -201,7 +202,7 @@ export default function HomePage() {
         </header>
 
         {/* Hero Section */}
-        <main className="flex flex-col items-center justify-center text-center px-6 py-20 lg:py-32">
+        <main className="flex flex-col overflow-x-hidden items-center justify-center text-center px-6 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto">
             {/* Main Heading */}
             <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-balance">
@@ -236,7 +237,7 @@ export default function HomePage() {
         {/* Geometric Background Section */}
         <section
           ref={sectionRef}
-          className="relative min-h-[280vh] py-32 bg-cover bg-center bg-no-repeat flex items-center justify-start"
+          className="relative min-h-[280vh] py-32 bg-cover overflow-x-hidden bg-center bg-no-repeat flex items-center justify-start"
           style={{
             backgroundImage: `url('/foogo-qr-background.png')`,
           }}
@@ -288,7 +289,7 @@ export default function HomePage() {
             id="f1-float"
             initial={{ x: -150, opacity: 0 }}
             animate={f1InView ? { x: 0, opacity: 1, transition: { duration: 1.1, ease: [0.33, 1, 0.68, 1] } } : {}}
-            className="right-0 transform translate-x-50 -translate-y-60 z-6"
+            className="right-0 overflow-x-hidden transform translate-x-50 -translate-y-60 z-6"
           >
             <img src="/f1.png" alt="FOOGO QR Scanner" className="w-90 h-90 object-contain" />
           </motion.div>
@@ -307,12 +308,13 @@ export default function HomePage() {
         </div>
 
         <Expfood />
-        <section className="hero">
+        <section  className="hero overflow-x-hidden">
           <Mockup />
         </section>
 
         <StatsSection />
-        <Clients />
+  <Clients />
+  <div className=" relative z-50 bg-black rounded-t-[7rem] ">
         <ShardBackgroundSection />
         <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
           <div className="grid gap-4 md:grid-cols-2">
@@ -360,7 +362,9 @@ export default function HomePage() {
         </div>
         <Carousel />
         <Demo />
+        <VideoSection />
       </div>
+</div>
     </div>
   )
 }

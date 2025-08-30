@@ -3,7 +3,7 @@ import { LogoGrid } from "./LogoGrid"
 
 export default function Clients() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center justify-center p-6">
+    <main className="sticky top-0 min-h-screen w-full flex flex-col items-center justify-center p-6 z-50 bg-black">
       <h2 className="text-2xl md:text-4xl font-semibold text-white mb-16 text-center tracking-tight drop-shadow-lg">
         Trusted Clients
       </h2>
