@@ -5,8 +5,10 @@ import Clients from "@/components/Clients"
 import { Demo } from "@/components/Demo"
 import { Expfood } from "@/components/Expfood"
 import { HeroCard } from "@/components/HeroCard"
+import InfiniteMovingCardsDemo from "@/components/infinite-moving-cards-demo"
 import { Mockup } from "@/components/Mockup"
 import ShardBackgroundSection from "@/components/ShardBackgroundSection"
+import SocialPromotionsSection from "@/components/SocialPromotionSection"
 import StatsSection from "@/components/StatsSection"
 import { Button } from "@/components/ui/button"
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
@@ -363,6 +365,8 @@ export default function HomePage() {
         <Carousel />
         <Demo />
         <VideoSection />
+        <SocialPromotionsSection />
+        <InfiniteMovingCardsDemo />
       </div>
 </div>
     </div>
