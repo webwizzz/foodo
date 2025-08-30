@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import AnimatedTextFromGround from "./AnimatedTextFromGround"
 import { LogoGrid } from "./LogoGrid"
 
 export default function Clients() {
@@ -9,14 +8,12 @@ export default function Clients() {
         Trusted Clients
       </h2>
       <motion.section
-        className="relative w-full max-w-[1216px] rounded-[22px] overflow-hidden shadow-2xl"
-  // style prop moved below to avoid duplicate
+        className="relative w-full max-w-[1216px] rounded-[22px] overflow-hidden shadow-2xl aspect-[1216/606] safari-aspect-fallback"
         aria-label="Neon logo showcase"
-        initial={{ opacity: 0, y: 120, scale: 0.96, boxShadow: '0 32px 64px 0 rgba(0,0,0,0.25)' }}
-        whileInView={{ opacity: 1, y: 0, scale: 1, boxShadow: '0 16px 48px 0 rgba(0,0,0,0.32)' }}
+        initial={{ opacity: 0, y: 120 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 60, damping: 18, duration: 0.9 }}
         viewport={{ once: true, amount: 0.4 }}
-  style={{ aspectRatio: "1216 / 606", boxShadow: '0 16px 48px 0 rgba(0,0,0,0.32)' }}
       >
         <img
           src="/neon-bg.svg"
@@ -31,18 +28,12 @@ export default function Clients() {
         {/* Add two neon circles behind the SVG logos */}
         <div className="pointer-events-none absolute inset-0 z-[2]" aria-hidden="true">
           <div
-            className="absolute right-[-10%] top-[-35%] h-[500px] w-[500px] rounded-full blur-xl"
-            style={{
-              background:"#ABEF26",
-              filter: "blur(200px)",
-            }}
+            className="absolute right-[-10%] top-[-35%] h-[500px] w-[500px] rounded-full neon-blur"
+            style={{ background: "#ABEF26" }}
           />
           <div
-            className="absolute left-[-14%] bottom-[-20%] h-[360px] w-[360px] rounded-full blur-xl"
-            style={{
-              background:"#ABEF26",
-              filter: "blur(200px)",
-            }}
+            className="absolute left-[-14%] bottom-[-20%] h-[360px] w-[360px] rounded-full neon-blur"
+            style={{ background: "#ABEF26" }}
           />
         </div>
 

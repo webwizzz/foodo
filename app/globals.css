@@ -1,3 +1,15 @@
+/* Safari aspect-ratio fallback */
+.safari-aspect-fallback {
+  aspect-ratio: 1216 / 606;
+  height: auto;
+  width: 100%;
+  max-width: 1216px;
+}
+
+/* Neon blur fix for Safari */
+.neon-blur {
+  filter: blur(120px);
+}
 @import "tailwindcss";
 
 :root {

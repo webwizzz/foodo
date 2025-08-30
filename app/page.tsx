@@ -1,20 +1,20 @@
 "use client"
 
+import Carousel from "@/components/Carousel"
 import Clients from "@/components/Clients"
+import { Demo } from "@/components/Demo"
 import { Expfood } from "@/components/Expfood"
+import { HeroCard } from "@/components/HeroCard"
 import { Mockup } from "@/components/Mockup"
 import ShardBackgroundSection from "@/components/ShardBackgroundSection"
 import StatsSection from "@/components/StatsSection"
-import { HeroCard } from "@/components/HeroCard"
 import { Button } from "@/components/ui/button"
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
 import { motion, useInView } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useEffect, useLayoutEffect, useRef } from "react"
-import Carousel from "@/components/Carousel"
-import { Demo } from "@/components/Demo"
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
+import { useEffect, useRef } from "react"
 
 export default function HomePage() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -44,67 +44,7 @@ export default function HomePage() {
     createScanningBeamAnimation()
   }, [])
 
-  // Custom GSAP smooth scroll effect (Locomotive-like)
-  useLayoutEffect(() => {
-    const wrapper = smoothWrapperRef.current
-    const content = smoothContentRef.current
-    if (!wrapper || !content) return
-
-    let height = 0
-    let scrollY = 0
-    let targetScrollY = 0
-    let rafId: number
-
-    function setBodyHeight() {
-      if (!content) return
-      height = content.getBoundingClientRect().height
-      document.body.style.height = height + "px"
-    }
-
-    function lerp(start: number, end: number, amt: number): number {
-      return (1 - amt) * start + amt * end
-    }
-
-    function animate() {
-      if (!content) return
-      targetScrollY = window.scrollY
-      scrollY = lerp(scrollY, targetScrollY, 0.12) // 0.12 = smoothness
-      content.style.transform = `translate3d(0,${-scrollY}px,0)`
-      ScrollTrigger.update()
-      rafId = requestAnimationFrame(animate)
-    }
-
-    setBodyHeight()
-    window.addEventListener("resize", setBodyHeight)
-    rafId = requestAnimationFrame(animate)
-
-    // Pin wrapper and allow scroll on body
-    if (wrapper) {
-      wrapper.style.position = "fixed"
-      wrapper.style.width = "100%"
-      wrapper.style.height = "100%"
-      wrapper.style.top = "0"
-      wrapper.style.left = "0"
-      wrapper.style.overflow = "hidden"
-      wrapper.style.zIndex = "1"
-    }
-
-    return () => {
-      window.removeEventListener("resize", setBodyHeight)
-      cancelAnimationFrame(rafId)
-      document.body.style.height = ""
-      if (wrapper) {
-        wrapper.style.position = ""
-        wrapper.style.width = ""
-        wrapper.style.height = ""
-        wrapper.style.top = ""
-        wrapper.style.left = ""
-        wrapper.style.overflow = ""
-        wrapper.style.zIndex = ""
-      }
-      if (content) content.style.transform = ""
-    }
-  }, [])
+  // Custom GSAP smooth scroll effect (Locomotive-like) - REMOVED, use native scroll everywhere
 
   const createAnimation = () => {
     gsap.to(wordsRef.current, {
