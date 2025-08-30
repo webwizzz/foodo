@@ -53,9 +53,6 @@ export default function Clients() {
           </div>
         </div>
   </motion.section>
-      <AnimatedTextFromGround
-        text={"Smart, Seamless,\nAI-Powered Solutions for\nModern Restaurants"}
-      />
     </main>
   )
 }

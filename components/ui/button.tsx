@@ -9,14 +9,18 @@ export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
     <button
       {...props}
       style={{
-        padding: "0.5rem 1.5rem",
-        background: "#0070f3",
-        color: "white",
-        border: "none",
-        borderRadius: "0.375rem",
+        padding: "0.8rem 0.9rem",
+        background: "#fff",
+        color: "#000",
+        borderRadius: "999px",
         cursor: "pointer",
-        fontWeight: 600,
+        fontWeight: 500,
         fontSize: "1rem",
+        lineHeight: 1,
+        letterSpacing: "0.000rem",
+        boxShadow: "none",
+        outline: "none",
+        transition: "background 0.2s, color 0.2s",
         ...props.style,
       }}
     >

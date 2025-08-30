@@ -1,32 +1,29 @@
-import React from "react";
+"use client"
+import { ContainerScroll } from "@/components/ui/container-scroll-animation"
 
-// Update the path if you move the image to another folder
-const bgUrl = "/shard.png"; // Place your image in the public/ folder as shard.png
-
-type Props = {
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-};
-export function ShardBackgroundSection({ children, className = "", style = {} }: Props) {
+export default function HeroScrollDemo() {
   return (
-    <section
-      className={`relative w-full h-[650px] flex items-center justify-center ${className}`}
-      style={{
-        backgroundImage: `url(${bgUrl})`,
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        ...style,
-      }}
-    >
-      <div className="relative z-10 w-full h-full flex items-center justify-center">
-        {children}
-      </div>
-      {/* Optional: overlay for darkening or tint */}
-      {/* <div className="absolute inset-0 bg-black/30 z-0" /> */}
-    </section>
-  );
+    <div className="flex flex-col overflow-hidden">
+      <ContainerScroll
+        titleComponent={
+          <>
+            <h1 className="text-4xl font-semibold text-black dark:text-white">
+             Smart,Seamless, <br />
+              <span className="text-4xl  font-semibold  leading-none">
+AI-Powered Solutions for<br/> Modern Restaurants</span>
+            </h1>
+          </>
+        }
+      >
+        <img
+          src={"/shard.png"}
+          alt="Sage-green modern restaurant interior with arched doorway and table settings"
+          height={720}
+          width={1400}
+          className="mx-auto rounded-2xl object-cover h-full object-center"
+          draggable={false}
+        />
+      </ContainerScroll>
+    </div>
+  )
 }
-
-export default ShardBackgroundSection;
