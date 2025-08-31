@@ -26,7 +26,7 @@ export function VideoSection() {
             {/* Image: using a random Freepik image as requested */}
             <div className="relative aspect-video w-full">
               <img
-                src="https://img.freepik.com/free-photo/delicious-sandwich-with-vegetables_144627-8899.jpg"
+                src="/burger.png"
                 alt="Delicious sandwich served on a wooden plate in a restaurant setting"
                 className="absolute inset-0 h-full w-full object-cover"
               />
