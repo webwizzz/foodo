@@ -2,11 +2,15 @@
 
 import Carousel from "@/components/Carousel"
 import Clients from "@/components/Clients"
+import ContactUs from "@/components/ContactUs"
 import { Demo } from "@/components/Demo"
 import { Expfood } from "@/components/Expfood"
+import FAQSection from "@/components/faq-section"
+import { SiteFooter } from "@/components/Footer"
 import { HeroCard } from "@/components/HeroCard"
 import InfiniteMovingCardsDemo from "@/components/infinite-moving-cards-demo"
 import { Mockup } from "@/components/Mockup"
+import Pricing from "@/components/Pricing"
 import ShardBackgroundSection from "@/components/ShardBackgroundSection"
 import SocialPromotionsSection from "@/components/SocialPromotionSection"
 import StatsSection from "@/components/StatsSection"
@@ -367,6 +371,10 @@ export default function HomePage() {
         <VideoSection />
         <SocialPromotionsSection />
         <InfiniteMovingCardsDemo />
+        <Pricing />
+        <ContactUs />
+        <FAQSection />
+        <SiteFooter />
       </div>
 </div>
     </div>
