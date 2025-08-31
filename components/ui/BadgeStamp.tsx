@@ -1,12 +1,22 @@
 "use client"
 import { cn } from "@/lib/utils"
+import { motion, useReducedMotion } from "framer-motion"
 
-type Props = { className?: string }
+type Props = { className?: string; durationSec?: number }
 
-/**
- * Lime circular badge with an up-right arrow, inspired by the screenshot.
- * Colors (4 total): black, white, gray (zinc), lime (#B5E03B).
- */
-export function BadgeStamp({ className }: Props) {
-  return <img src="/badge.svg" alt="" aria-hidden="true" className={cn("select-none", className)} />
+export function BadgeStamp({ className, durationSec = 16 }: Props) {
+  const reduce = useReducedMotion()
+
+  return (
+    <motion.img
+      src="/badge.svg"
+      alt=""
+      aria-hidden="true"
+      className={cn("select-none", className)}
+      style={{ transformOrigin: "50% 50%" }}
+      initial={reduce ? undefined : { rotate: 0 }}
+      animate={reduce ? undefined : { rotate: 360 }}
+      transition={reduce ? undefined : { duration: durationSec, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+    />
+  )
 }
