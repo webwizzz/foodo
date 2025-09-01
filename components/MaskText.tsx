@@ -22,10 +22,10 @@ export function MaskText() {
   };
 
   return (
-    <div ref={body} className="tracking-tight overflow-hidden">
+    <div ref={body} className="tracking-tight flex flex-col items-start overflow-hidden">
       {phrases.map((phrase, index) => (
         <div key={index} className="overflow-hidden">
-          <motion.p
+          <motion.p 
             variants={animation}
             initial="initial"
             animate={isInView ? "enter" : "initial"}

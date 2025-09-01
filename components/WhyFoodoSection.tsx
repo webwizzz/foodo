@@ -10,7 +10,7 @@ export default function WhyFoodoSection() {
 
   return (
     <section className="flex flex-col md:flex-row lg:flex-row max-w-6xl mx-auto items-center transform -translate-y-20 justify-between min-h-[60vh] ">
-      {/* Image on the left with animation */}
+      {/* Image on the left with animation - hidden on small screens */}
       <motion.div
         ref={imageRef}
         initial={{ x: -120, opacity: 0 }}
@@ -26,7 +26,7 @@ export default function WhyFoodoSection() {
               }
             : {}
         }
-        className="flex-shrink-0"
+        className="hidden md:block flex-shrink-0"
       >
         <img
           src="/f3.png"
@@ -34,8 +34,8 @@ export default function WhyFoodoSection() {
           className="w-90 h-90 "
         />
       </motion.div>
-      {/* Text on the right */}
-      <div className="mt-10 md:mt-0 md:ml-24 flex flex-col items-center md:items-start text-center md:text-left max-w-xl">
+      {/* Text content - centered on small screens, left-aligned on larger screens */}
+      <div className="mt-20 md:mt-16 md:ml-24 flex flex-col items-start md:items-start text-center md:text-left max-w-xl mx-auto md:mx-0">
         <MaskHeading/>
         <MaskText />
         <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-3 text-lg font-semibold shadow-md mt-8">
