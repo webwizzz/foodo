@@ -1,5 +1,3 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const phrases = [
   "Elevate customer experiences and boost sales with",
@@ -10,30 +8,15 @@ const phrases = [
 ];
 
 export function MaskText() {
-  const body = useRef<HTMLDivElement>(null);
-  const isInView = useInView(body, { once: true, margin: "-75%" });
-
-  const animation = {
-    initial: { y: "100%" },
-    enter: {
-      y: "0",
-      transition: { duration: 0.75 }
-    }
-  };
-
   return (
-    <div ref={body} className="tracking-tight flex flex-col items-start overflow-hidden">
+    <div className="tracking-tight flex flex-col items-start space-y-1">
       {phrases.map((phrase, index) => (
-        <div key={index} className="overflow-hidden">
-          <motion.p 
-            variants={animation}
-            initial="initial"
-            animate={isInView ? "enter" : "initial"}
-            className="text-xl text-gray-300 font-normal"
-          >
-            {phrase}
-          </motion.p>
-        </div>
+        <p 
+          key={index} 
+          className="text-xl text-gray-300 font-normal"
+        >
+          {phrase}
+        </p>
       ))}
     </div>
   );
