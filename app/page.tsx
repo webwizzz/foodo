@@ -1,6 +1,7 @@
 "use client"
 
 import Carousel from "@/components/Carousel"
+import Clients from "@/components/Clients"
 import ContactUs from "@/components/ContactUs"
 import { Demo } from "@/components/Demo"
 import { Expfood } from "@/components/Expfood"
@@ -86,7 +87,7 @@ export default function HomePage() {
           </section>
 
           <StatsSection />
-          
+          <Clients/>
           
           <div className=" relative z-50 bg-black rounded-t-[7rem] ">
             <ShardBackgroundSection />

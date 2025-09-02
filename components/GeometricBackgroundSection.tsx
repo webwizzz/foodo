@@ -1,13 +1,39 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useEffect, useRef } from "react"
 
+// Word component for character-by-character text opacity animation
+const Word = ({children, progress, range}: {children: string, progress: any, range: [number, number]}) => {
+  const amount = range[1] - range[0]
+  const step = amount / children.length
+  return (
+    <span className={`inline-block mr-2 lg:mr-3 ${children === "today." ? "text-lime-400" : ""}`}>
+      {
+        children.split("").map((char, i) => {
+          const start = range[0] + (i * step);
+          const end = range[0] + ((i + 1) * step)
+          return <Char key={`c_${i}`} progress={progress} range={[start, end]}>{char}</Char>
+        })
+      }
+    </span>
+  )
+}
+
+const Char = ({children, progress, range}: {children: string, progress: any, range: [number, number]}) => {
+  const opacity = useTransform(progress, range, [0, 1])
+  return (
+    <span className="relative">
+      <span className="absolute opacity-30">{children}</span>
+      <motion.span style={{opacity: opacity}}>{children}</motion.span>
+    </span>
+  )
+}
+
 export default function GeometricBackgroundSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const wordsRef = useRef<(HTMLSpanElement | null)[]>([])
   const containerRef = useRef<HTMLDivElement>(null)
   const scanningBeamRef = useRef<HTMLImageElement>(null)
   const scannerRef = useRef<HTMLDivElement>(null)
@@ -22,25 +48,16 @@ export default function GeometricBackgroundSection() {
   const qrInView = useInView(qrRef, { once: true, margin: "0px 0px -40% 0px" })
   const qrMobileInView = useInView(qrMobileRef, { once: true, margin: "0px 0px -40% 0px" })
 
+  // Scroll progress for text animation
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.9", "start 0.25"]
+  })
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
-    createAnimation()
     createScanningBeamAnimation()
   }, [])
-
-  const createAnimation = () => {
-    gsap.to(wordsRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        scrub: true,
-        start: "top bottom",
-        end: `+=${window.innerHeight / 1}`,
-      },
-      opacity: 1,
-      ease: "none",
-      stagger: 0.1,
-    })
-  }
 
   const createScanningBeamAnimation = () => {
     if (scanningBeamRef.current) {
@@ -143,17 +160,19 @@ export default function GeometricBackgroundSection() {
       {/* Content */}
       <div className="relative z-10 max-w-2xl px-6 text-left ml-0 pt-44 lg:pt-2 lg:ml-30 mt-40 lg:mt-125">
         <div ref={containerRef} className="text-3xl sm:text-2xl lg:text-4xl font-normal leading-snug lg:leading-tighter tracking-tighter text-balance">
-          {words.map((word, index) => (
-            <span
-              key={index}
-              ref={(el) => {
-                wordsRef.current[index] = el
-              }}
-              className={`inline-block mr-2 lg:mr-3 opacity-30 ${word === "today." ? "text-lime-400" : ""}`}
-            >
-              {word}
-            </span>
-          ))}
+          {words.map((word, index) => {
+            const start = index / words.length
+            const end = start + (1 / words.length)
+            return (
+              <Word 
+                key={index} 
+                progress={scrollYProgress} 
+                range={[start, end]}
+              >
+                {word}
+              </Word>
+            )
+          })}
         </div>
         
         {/* S2 image after text on mobile */}
