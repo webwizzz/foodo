@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
-import { Plus, Minus } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Minus, Plus } from "lucide-react"
+import * as React from "react"
 
 type FaqItem = {
   id: string
@@ -45,7 +45,7 @@ export function FAQSection({ className }: { className?: string }) {
   }
 
   return (
-    <section className={cn("w-full bg-black text-white", className)} aria-labelledby="faq-heading">
+    <section className={cn("w-full bg-black text-white font-matter", className)} aria-labelledby="faq-heading">
       <div className="mx-auto max-w-5xl px-6 md:px-8 py-16 md:py-24">
         <h2
           id="faq-heading"

@@ -5,7 +5,7 @@ export function SiteFooter({ className }: { className?: string }) {
   return (
     <footer
       className={cn(
-        "relative overflow-hidden bg-black text-white",
+        "relative overflow-hidden bg-black text-white font-matter",
         "pt-16 md:pt-20 pb-8 md:pb-10",
         "min-h-screen",
         className,

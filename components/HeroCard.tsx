@@ -92,6 +92,15 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
       />
 
+      {/* Dark overlay for better text contrast */}
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-0 -z-5 bg-black/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+      />
+
       {/* content */}
       <div className="relative z-10">
         <motion.p 

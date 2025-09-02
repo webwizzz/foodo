@@ -159,7 +159,7 @@ export default function GeometricBackgroundSection() {
       
       {/* Content */}
       <div className="relative z-10 max-w-2xl px-6 text-left ml-0 pt-44 lg:pt-2 lg:ml-30 mt-40 lg:mt-125">
-        <div ref={containerRef} className="text-3xl sm:text-2xl lg:text-4xl font-normal leading-snug lg:leading-tighter tracking-tighter text-balance">
+        <div ref={containerRef} className="text-3xl sm:text-2xl lg:text-4xl font-normal font-matter leading-snug lg:leading-tighter tracking-tighter text-balance">
           {words.map((word, index) => {
             const start = index / words.length
             const end = start + (1 / words.length)

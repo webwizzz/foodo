@@ -7,7 +7,7 @@ import SidebarMenu from "./Header/SidebarMenu"
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4 lg:px-12 relative font-matter">
+    <header className="flex items-center justify-between px-4 py-4  lg:px-6 relative font-matter">
       {/* Logo */}
       <div className="flex items-center">
         <Image
@@ -21,17 +21,17 @@ export default function Header() {
       </div>
 
       {/* Navigation Menu - Hidden on mobile, visible on md+ */}
-      <nav className="hidden md:flex items-center space-x-8">
-        <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">
+      <nav className="hidden  md:flex pl-48  items-center space-x-4">
+        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
           Product
         </a>
-        <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">
+        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
           How it Work
         </a>
-        <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">
+        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
           Pricing
         </a>
-        <a href="#" className="text-white hover:text-gray-300 transition-colors font-medium">
+        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
           Company
         </a>
       </nav>
@@ -41,11 +41,11 @@ export default function Header() {
         <HoverBorderGradient
           as="a"
           containerClassName="rounded-full"
-          className="px-6 py-2 text-sm font-medium"
+          className="px-3 py-1 text-sm font-medium"
         >
           Get Started
         </HoverBorderGradient>
-        <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-6 font-medium">Book a Demo</Button>
+        <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-3 py-1 font-medium">Book a Demo</Button>
       </div>
 
       {/* Mobile Sidebar Menu - Visible on mobile, hidden on md+ */}

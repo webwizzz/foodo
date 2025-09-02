@@ -21,7 +21,7 @@ export default function Pricing() {
     <main className="bg-black text-white min-h-screen">
       <section className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24 lg:py-28">
         <header className="text-center mb-12 md:mb-16">
-          <h1 className="font-sans text-balance text-4xl md:text-5xl font-semibold">
+          <h1 className="font-matter text-balance text-4xl md:text-5xl font-semibold">
             Choose the right plan for
             <br className="hidden md:block" /> your Restaurant
           </h1>

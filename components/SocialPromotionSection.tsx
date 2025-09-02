@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { motion, useAnimation, useInView } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
+import { HoverBorderGradient } from "./ui/hover-border-gradient"
 
 type CardProps = {
   src: string
@@ -225,16 +226,16 @@ export function SocialPromotionsSection() {
         >
           <h2
             id="social-promotions-heading"
-            className="text-pretty font-sans text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+            className="text-pretty text-[#F3F0F0] font-matter text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
           >
             Social Media & Promotions
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-balance text-sm/6 text-gray-300 sm:text-base/7">
+          <p className="mx-auto font-matter mt-4 max-w-3xl text-balance text-sm/6 text-white sm:text-base/7">
             Stay connected with the pulse of your brand. From menu reveals to behind‑the‑scenes innovation, follow along
             as we blend food, tech, and design across every platform.
           </p>
           <div className="mt-6 flex items-center justify-center gap-3">
-            <Button className="rounded-full bg-emerald-600 px-5 text-white hover:bg-emerald-500">Get Started</Button>
+            <HoverBorderGradient className="rounded-full bg-black px-5 text-white hover:bg-emerald-500">Get Started</HoverBorderGradient>
             <Button className="rounded-full bg-white/5 px-5 text-white hover:bg-white/10">Book a Demo</Button>
           </div>
         </motion.div>

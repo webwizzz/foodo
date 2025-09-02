@@ -3,9 +3,9 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards"
 
 export default function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <h2 className="text-center text-2xl md:text-3xl font-semibold tracking-tight text-black dark:text-white mb-6 md:mb-8">
-        our happy clients
+    <div className="h-[40rem] rounded-md font-matter flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-start justify-center relative overflow-hidden">
+      <h2 className="text-center text-3xl px-10 md:text-4xl font-semibold tracking-tight text-black dark:text-white mb-6 md:mb-8">
+        Our Happy Clients
       </h2>
       <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
     </div>

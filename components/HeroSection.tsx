@@ -69,7 +69,7 @@ export default function HeroSection() {
     >
       <div className="max-w-4xl mx-auto">
         {/* Main Heading with split animation */}
-        <div className="text-5xl lg:text-6xl font-semibold mb-4">
+        <div className="text-5xl lg:text-6xl font-semibold mb-4 text-[#F3F0F0] font-matter">
           <motion.div
             variants={slideInFromLeft}
             className="overflow-hidden"
@@ -104,7 +104,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <motion.p 
-          className="text-lg lg:text-xl text-gray-300 mb-4 max-w-2xl lg:max-w-3xl mx-auto text-balance leading-tight"
+          className="text-lg lg:text-xl text-[#C3C3C3] mb-4 max-w-2xl lg:max-w-3xl mx-auto text-balance leading-tight"
           variants={fadeInUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
           data-scroll
@@ -125,7 +125,7 @@ export default function HeroSection() {
             variants={buttonVariants}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-3 text-sm">
+            <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-3 text-sm font-matter">
               Book a Demo
             </Button>
           </motion.div>
@@ -136,7 +136,7 @@ export default function HeroSection() {
             <HoverBorderGradient
               as="a"
               containerClassName="rounded-full"
-              className="px-6 py-2 text-sm font-medium"
+              className="px-6 py-2 text-sm font-medium font-matter"
             >
               Get Started
             </HoverBorderGradient>

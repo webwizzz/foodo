@@ -1,7 +1,7 @@
 export default function ContactUs() {
   return (
     <section
-      className="relative min-h-screen w-full text-white"
+      className="relative min-h-screen w-full text-white font-matter"
       aria-label="Hero section with call to action"
       style={{
         backgroundImage: "url('/contact.png')",

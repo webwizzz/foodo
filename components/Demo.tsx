@@ -62,7 +62,7 @@ export function Demo() {
               </div>
 
               {/* Bottom-left small card */}
-              <div className="overflow-hidden rounded-2xl bg-neutral-100">
+              <div className="overflow-hidden rounded-2xl bg-white">
                 <img
                   src="d2.png"
                   alt="Minimal green 3D shape above pedestal"
@@ -72,7 +72,7 @@ export function Demo() {
               </div>
 
               {/* Bottom-right small card */}
-              <div className="overflow-hidden rounded-2xl bg-neutral-100">
+              <div className="overflow-hidden rounded-2xl bg-white">
                 <img
                   src="d3.png"
                   alt="Chef holding a plated dish"
@@ -84,8 +84,8 @@ export function Demo() {
           </div>
 
           {/* Right: Text block */}
-          <div className="w-full lg:max-w-xl">
-            <h1 ref={containerRef} className="text-pretty font-semibold leading-tighter text-white text-4xl md:text-[2.6rem]">
+          <div className="w-full lg:max-w-lg">
+            <h1 ref={containerRef} className="text-pretty font-matter font-semibold leading-tighter text-white text-4xl md:text-[2.6rem]">
               {words.map((word, index) => {
                 const start = index / (words.length + subtitleWords.length)
                 const end = start + (1 / (words.length + subtitleWords.length))

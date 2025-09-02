@@ -44,21 +44,6 @@ export function Mockup({
   const next2Index = (index + 2) % SLIDES.length
   const sideTiles = [SLIDES[prev2Index], SLIDES[prevIndex], SLIDES[nextIndex], SLIDES[next2Index]]
 
-  React.useEffect(() => {
-    if (!autoPlay) return
-    let frame: number
-    let last = performance.now()
-    const speed = 0.08 // px/ms
-    function animate(now: number) {
-      const dt = now - last
-      last = now
-      setOffset((o) => o + dt * speed)
-      frame = requestAnimationFrame(animate)
-    }
-    frame = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(frame)
-  }, [autoPlay])
-
   // Loop offset
   const imageWidth = 240 // px - base width for layout calculations
   const slideGap = 32 // px - more space between slides
@@ -68,6 +53,28 @@ export function Mockup({
   const normalizedOffset = ((offset % totalWidth) + totalWidth) % totalWidth
 
   const EXT_SLIDES = React.useMemo(() => [...SLIDES, ...SLIDES, ...SLIDES], [])
+
+  React.useEffect(() => {
+    if (!autoPlay) return
+    let frame: number
+    let last = performance.now()
+    const speed = 0.04 // px/ms - reduced speed for smoother animation
+    function animate(now: number) {
+      const dt = now - last
+      last = now
+      setOffset((o) => {
+        const newOffset = o + dt * speed
+        // Reset to equivalent position if we've moved too far forward
+        if (newOffset > totalWidth * 2) {
+          return newOffset - totalWidth
+        }
+        return newOffset
+      })
+      frame = requestAnimationFrame(animate)
+    }
+    frame = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(frame)
+  }, [autoPlay, totalWidth])
 
   const [viewportWidth, setViewportWidth] = React.useState(0)
   React.useEffect(() => {
@@ -104,13 +111,27 @@ export function Mockup({
   // Controls (for side tiles and arrows)
   const goNext = React.useCallback(() => {
     setIndex((i) => (i + 1) % SLIDES.length)
-    setOffset((o) => o + stepSize)
-  }, [])
+    setOffset((o) => {
+      const newOffset = o + stepSize
+      // Reset to equivalent position if we've moved too far forward
+      if (newOffset > totalWidth * 2) {
+        return newOffset - totalWidth
+      }
+      return newOffset
+    })
+  }, [stepSize, totalWidth])
 
   const goPrev = React.useCallback(() => {
     setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length)
-    setOffset((o) => o - stepSize)
-  }, [])
+    setOffset((o) => {
+      const newOffset = o - stepSize
+      // Reset to equivalent position if we've moved too far backward
+      if (newOffset < 0) {
+        return newOffset + totalWidth
+      }
+      return newOffset
+    })
+  }, [stepSize, totalWidth])
 
   const neon = "bg-[#C7F01D] text-black"
   const screenStyle: React.CSSProperties = {
@@ -167,7 +188,7 @@ export function Mockup({
             style={{
               width: `${EXT_SLIDES.length * stepSize}px`,
               transform: `translateX(-${totalWidth + normalizedOffset - centerFixPx}px)`,
-              transition: isDragging ? "none" : "transform 0.3s cubic-bezier(.4,1,.4,1)",
+              transition: isDragging ? "none" : "transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             }}
           >
             {EXT_SLIDES.map((slide, i) => {
@@ -185,7 +206,7 @@ export function Mockup({
                     height: "100%",
                     marginRight: `${slideGap}px`,
                     transform: `scale(${isCenter ? 1 : 0.5})`,
-                    transition: isDragging ? "none" : "transform 400ms cubic-bezier(.4,1,.4,1)",
+                    transition: isDragging ? "none" : "transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                     willChange: "transform",
                     zIndex: isCenter ? 2 : 1,
                     position: 'relative',

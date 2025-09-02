@@ -55,25 +55,25 @@ export default function WhyFoodoSection() {
         />
       </motion.div>
       {/* Text content - centered on small screens, left-aligned on larger screens */}
-      <div ref={textRef} className="mt-20 md:mt-16 md:ml-24 flex flex-col items-start md:items-start text-start md:text-left max-w-xl mx-auto md:mx-0">
+      <div ref={textRef} className="mt-20 md:mt-16 md:ml-24 flex flex-col items-start md:items-start text-start md:text-left max-w-xl font-matter mx-auto md:mx-0">
         {/* Heading Animation */}
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
           animate={textInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-6xl text-white font-semibold mb-8"
+          className="text-6xl text-[#F3F0F0] font-semibold mb-8"
         >
           Why Foodo ?
         </motion.h2>
 
         {/* Text Paragraphs Animation */}
-        <div className="tracking-tight flex flex-col items-start space-y-1 mb-8">
+        <div className="tracking-tight flex flex-col items-start  mb-8">
           {/* Desktop/Large screens text */}
           <div className="hidden md:block">
             {textPhrases.map((phrase, index) => (
               <motion.p 
                 key={index} 
-                className="text-lg lg:text-xl text-gray-300 font-normal"
+                className="text-lg lg:text-xl text-[#C3C3C3] leading-tight font-normal"
                 initial={{ y: 30, opacity: 0 }}
                 animate={textInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                 transition={{ 

@@ -3,20 +3,20 @@ export function VideoSection() {
     <section className="bg-black">
       <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
         {/* Headline */}
-        <h1 className="text-center text-pretty font-sans text-4xl font-semibold leading-tight text-white md:text-6xl">
+        <h1 className="text-center text-pretty font-matter text-4xl font-semibold leading-tight text-white md:text-5xl">
           Smart, Seamless, AI-Powered Tools
           <br className="hidden md:block" />
           for Modern Restaurants
         </h1>
 
         {/* Supporting copy */}
-        <div className="mt-6 space-y-2 text-center">
+        <div className="mt-6 font-matter text-center">
           <p className="mx-auto max-w-3xl text-sm leading-relaxed text-neutral-300 md:text-base">
             Discover how Foodo transforms the way restaurants operate.
           </p>
-          <p className="mx-auto max-w-4xl text-sm leading-relaxed text-neutral-300 md:text-base">
-            Watch how AI, AR, and intuitive systems come together to streamline ordering, enhance guest experience, and
-            optimize every touchpoint—from table to kitchen.
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-neutral-300 md:text-base">
+            Watch how AI, AR, and intuitive systems come together to streamline ordering, enhance guest 
+            experience, and optimize every touchpoint—from table to kitchen.
           </p>
         </div>
 
