@@ -1,7 +1,7 @@
 export function Demo() {
   return (
     <section className="bg-black text-white">
-      <div className="mx-auto max-w-8xl px-16 py-20 md:py-28">
+      <div className="mx-auto max-w-8xl px-4 lg:px-16 py-10 md:py-28">
         <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-center lg:justify-between">
           {/* Left: 3-image grid (top spans 2 cols) */}
           <div className="w-full lg:max-w-2xl">

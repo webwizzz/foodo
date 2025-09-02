@@ -31,7 +31,7 @@ export default function HorizontalCarousel({
     const scroller = scrollerRef.current
     if (!scroller) return
     const card = firstCardRef.current
-    const gap = 24 // matches gap-6 (≈24px)
+    const gap = window.innerWidth < 640 ? 16 : 24 // smaller gap on mobile
     const delta = (card?.clientWidth || 250) + gap
     scroller.scrollBy({ left: dir === "next" ? delta : -delta, behavior: "smooth" })
   }, [])
@@ -85,8 +85,8 @@ export default function HorizontalCarousel({
   return (
     <div className="relative">
       {/* edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-black to-transparent rounded-s-3xl" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-black to-transparent rounded-e-3xl" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-6 sm:w-8 md:w-10 bg-gradient-to-r from-black to-transparent rounded-s-3xl" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-6 sm:w-8 md:w-10 bg-gradient-to-l from-black to-transparent rounded-e-3xl" />
 
       {/* Controls */}
       <div className="absolute -left-3 top-1/2 -translate-y-1/2 z-20 hidden md:block">
@@ -112,7 +112,7 @@ export default function HorizontalCarousel({
         ref={scrollerRef}
         aria-label={ariaLabel}
         className={`
-          group relative flex items-stretch gap-4
+          group relative flex items-stretch gap-4 sm:gap-6
           overflow-x-auto select-none cursor-grab
           px-1 py-2
           [scroll-snap-type:x_mandatory] scroll-smooth
@@ -120,6 +120,8 @@ export default function HorizontalCarousel({
         `}
         style={{
           WebkitOverflowScrolling: "touch",
+          scrollBehavior: "smooth",
+          overscrollBehaviorX: "contain",
         }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}

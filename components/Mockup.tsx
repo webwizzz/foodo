@@ -58,7 +58,7 @@ export function Mockup({
   }, [autoPlay])
 
   // Loop offset
-  const imageWidth = 300 // px (was 320) - slightly smaller so one fits nicely inside the mockup
+  const imageWidth = 240 // px - base width for layout calculations
   const slideGap = 32 // px - more space between slides
   const stepSize = imageWidth + slideGap
 
@@ -203,7 +203,7 @@ export function Mockup({
                     alt={slide.alt}
                     width={240}
                     height={440}
-                    className="object-contain rounded-2xl shadow-lg border-2 border-transparent"
+                    className="object-contain rounded-2xl shadow-lg border-2 border-transparent w-[180px] h-[330px] sm:w-[200px] sm:h-[366px] md:w-[220px] md:h-[403px] lg:w-[240px] lg:h-[440px]"
                     draggable={false}
                     style={isCenter ? { position: 'relative', zIndex: 1 } : { position: 'relative', zIndex: 1 }}
                   />
