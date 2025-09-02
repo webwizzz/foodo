@@ -12,6 +12,7 @@ export default function GeometricBackgroundSection() {
   const scanningBeamRef = useRef<HTMLImageElement>(null)
   const scannerRef = useRef<HTMLDivElement>(null)
   const qrRef = useRef<HTMLDivElement>(null)
+  const qrMobileRef = useRef<HTMLDivElement>(null)
 
   const text =
     "Elevate customer experiences and boost sales with AI and AR. Upgrade your dining space with the future of innovation today. Simplify tasks from ordering to inventory management, reducing errors and enhancing service speed."
@@ -19,6 +20,7 @@ export default function GeometricBackgroundSection() {
 
   const scannerInView = useInView(scannerRef, { once: true, margin: "0px 0px -40% 0px" })
   const qrInView = useInView(qrRef, { once: true, margin: "0px 0px -40% 0px" })
+  const qrMobileInView = useInView(qrMobileRef, { once: true, margin: "0px 0px -40% 0px" })
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -91,7 +93,7 @@ export default function GeometricBackgroundSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[130vh] lg:min-h-[280vh] py-2 lg:py-32 overflow-x-hidden flex items-center justify-start"
+      className="relative min-h-screen lg:min-h-[280vh] py-2 lg:py-32  flex items-center justify-start"
     >
       {/* Background image - only visible on large screens */}
       <div 
@@ -156,9 +158,9 @@ export default function GeometricBackgroundSection() {
         
         {/* S2 image after text on mobile */}
         <motion.div
-          ref={qrRef}
+          ref={qrMobileRef}
           initial={{ y: 50, opacity: 0 }}
-          animate={qrInView ? { y: 0, opacity: 1, transition: { duration: 1.2, ease: [0.33, 1, 0.68, 1] } } : {}}
+          animate={qrMobileInView ? { y: 0, opacity: 1, transition: { duration: 1.2, ease: [0.33, 1, 0.68, 1] } } : {}}
           className="flex lg:hidden mt-12 justify-center"
         >
           <img src="/s2.png" alt="FOOGO QR Scanner" className="w-[80%] h-[80%] object-contain" />

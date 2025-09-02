@@ -16,8 +16,20 @@ export default function WhyFoodoSection() {
     "service speed."
   ];
 
+  // Different text divisions for smaller screens
+  const mobileTextPhrases = [
+    "Elevate customer experiences",
+    "and boost sales with AI and AR.",
+    "Upgrade your dining space",
+    "with the future of innovation today.",
+    "Simplify tasks from ordering",
+    "to inventory management,",
+    "reducing errors and enhancing",
+    "service speed."
+  ];
+
   return (
-    <section className="flex flex-col md:flex-row lg:flex-row max-w-6xl mx-auto items-center transform -translate-y-20 justify-between min-h-[60vh] ">
+    <section className="flex flex-col md:flex-row lg:flex-row max-w-6xl mx-auto items-start transform -translate-y-20 justify-between min-h-[60vh] ">
       {/* Image on the left with animation - hidden on small screens */}
       <motion.div
         ref={imageRef}
@@ -43,7 +55,7 @@ export default function WhyFoodoSection() {
         />
       </motion.div>
       {/* Text content - centered on small screens, left-aligned on larger screens */}
-      <div ref={textRef} className="mt-20 md:mt-16 md:ml-24 flex flex-col items-start md:items-start text-center md:text-left max-w-xl mx-auto md:mx-0">
+      <div ref={textRef} className="mt-20 md:mt-16 md:ml-24 flex flex-col items-start md:items-start text-start md:text-left max-w-xl mx-auto md:mx-0">
         {/* Heading Animation */}
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
@@ -56,21 +68,43 @@ export default function WhyFoodoSection() {
 
         {/* Text Paragraphs Animation */}
         <div className="tracking-tight flex flex-col items-start space-y-1 mb-8">
-          {textPhrases.map((phrase, index) => (
-            <motion.p 
-              key={index} 
-              className="text-xl text-gray-300 font-normal"
-              initial={{ y: 30, opacity: 0 }}
-              animate={textInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.3 + (index * 0.1),
-                ease: "easeOut"
-              }}
-            >
-              {phrase}
-            </motion.p>
-          ))}
+          {/* Desktop/Large screens text */}
+          <div className="hidden md:block">
+            {textPhrases.map((phrase, index) => (
+              <motion.p 
+                key={index} 
+                className="text-lg lg:text-xl text-gray-300 font-normal"
+                initial={{ y: 30, opacity: 0 }}
+                animate={textInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3 + (index * 0.1),
+                  ease: "easeOut"
+                }}
+              >
+                {phrase}
+              </motion.p>
+            ))}
+          </div>
+
+          {/* Mobile/Small screens text */}
+          <div className="block md:hidden">
+            {mobileTextPhrases.map((phrase, index) => (
+              <motion.p 
+                key={index} 
+                className="text-lg text-gray-300 font-normal"
+                initial={{ y: 30, opacity: 0 }}
+                animate={textInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3 + (index * 0.08),
+                  ease: "easeOut"
+                }}
+              >
+                {phrase}
+              </motion.p>
+            ))}
+          </div>
         </div>
 
         <motion.div
