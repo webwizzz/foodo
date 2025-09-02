@@ -1,3 +1,17 @@
+/* Performance optimizations for smooth animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .animate-scroll:hover {
   animation-play-state: paused;
 }

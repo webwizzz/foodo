@@ -1,6 +1,8 @@
 "use client"
 
+import { fadeInUp, scaleIn, useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import * as React from "react"
 
@@ -123,8 +125,15 @@ export function Mockup({
     cursor: enableDrag ? (isDragging ? "grabbing" : "grab") : "auto",
   }
 
+  const { ref, controls } = useScrollAnimation()
+
   return (
-    <section
+    <motion.section
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={fadeInUp}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn(
         "relative w-full min-h-[80svh] md:min-h-[90svh] bg-black text-white ",
         "flex items-center justify-center",
@@ -217,7 +226,13 @@ export function Mockup({
       {/* Side images removed as requested */}
 
       {/* Phone mockup */}
-      <div className="relative w-[320px] sm:w-[360px] md:w-[420px] lg:w-[480px]">
+      <motion.div 
+        className="relative w-[320px] sm:w-[360px] md:w-[420px] lg:w-[480px]"
+        variants={scaleIn}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        data-scroll
+        data-scroll-speed="0.1"
+      >
         <div className="absolute z-20 hidden" style={screenStyle} />
 
         {/* Phone image must sit above the content but below controls */}
@@ -228,8 +243,10 @@ export function Mockup({
           height={1026}
           priority
           className="relative z-30 w-full h-auto select-none pointer-events-none"
+          data-scroll
+          data-scroll-speed="0.2"
         />
-      </div>
+      </motion.div>
 
       <div className="absolute inset-x-0 top-[8.8%] h-[79%] z-50" aria-hidden="false">
         <div className="absolute inset-x-0 bottom-[4%] flex items-center justify-center">
@@ -288,7 +305,7 @@ export function Mockup({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

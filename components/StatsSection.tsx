@@ -1,3 +1,5 @@
+import { fadeInUp, scaleIn, staggerContainer, useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { motion } from "framer-motion"
 import { AnimatedNumber } from "./AnimatedNumber"
 
 type Stat = {
@@ -16,13 +18,39 @@ const STATS: Stat[] = [
 ]
 
 export default function StatsSection() {
+  const { ref, controls } = useScrollAnimation()
+
   return (
-    <section className="w-full bg-black">
+    <motion.section 
+      className="w-full bg-black"
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={fadeInUp}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="mx-auto max-w-7xl px-4">
-        <div className="rounded-[20px] bg-[#B9F22C] p-6 md:p-10 ring-1 ring-black/20" aria-label="Key metrics">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-8">
-            {STATS.map((s) => (
-              <div key={s.label} className="text-black">
+        <motion.div 
+          className="rounded-[20px] bg-[#B9F22C] p-6 md:p-10 ring-1 ring-black/20" 
+          aria-label="Key metrics"
+          variants={scaleIn}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <motion.div 
+            className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-8"
+            variants={staggerContainer}
+          >
+            {STATS.map((s, index) => (
+              <motion.div 
+                key={s.label} 
+                className="text-black"
+                variants={fadeInUp}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: "easeOut",
+                  delay: 0.4 + (index * 0.1) 
+                }}
+              >
                 <div className="font-sans text-6xl md:text-7xl font-semibold leading-none tracking-tight">
                   <AnimatedNumber
                     value={s.value}
@@ -32,11 +60,11 @@ export default function StatsSection() {
                   />
                 </div>
                 <p className="mt-4 md:mt-4 font-sans text-xl md:text-xl  font-semibold text-black">{s.label}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
