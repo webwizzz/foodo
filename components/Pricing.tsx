@@ -28,13 +28,26 @@ export default function Pricing() {
         </header>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 lg:gap-4">
-          <PricingCard title="Enterprise" price="£120/mo" baseFeatures={BASE_FEATURES} groups={FEATURE_GROUPS} />
-          <PricingCard title="Enterprise" price="£120/mo" baseFeatures={BASE_FEATURES} groups={FEATURE_GROUPS} />
+          <PricingCard 
+            title="Enterprise" 
+            price="£120/mo" 
+            baseFeatures={BASE_FEATURES} 
+            groups={FEATURE_GROUPS} 
+            customBgColor="#1F1F1F"
+          />
+          <PricingCard 
+            title="Enterprise" 
+            price="£120/mo" 
+            baseFeatures={BASE_FEATURES} 
+            groups={FEATURE_GROUPS} 
+            customBgColor="#353535"
+          />
           <PricingCard
             title="Enterprise"
             price="£120/mo"
             baseFeatures={BASE_FEATURES}
             groups={FEATURE_GROUPS}
+            customBgColor="#ABEF26"
             highlight
           />
         </div>
