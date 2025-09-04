@@ -1,18 +1,20 @@
 export default function ContactUs() {
   return (
     <section
-      className="relative min-h-screen w-full text-white font-matter"
+      className="relative min-h-screen w-full text-white font-matter md:[background-image:var(--bg-desktop)]"
       aria-label="Hero section with call to action"
       style={{
-        backgroundImage: "url('/contact.png')",
+        '--bg-mobile': "url('/smallcontact.png')",
+        '--bg-desktop': "url('/contact.png')",
+        backgroundImage: 'var(--bg-mobile)',
         backgroundSize: "cover",
         backgroundPosition: "right center",
         backgroundRepeat: "no-repeat",
-      }}
+      } as React.CSSProperties}
     >
-      <div className="mx-auto flex h-full min-h-screen w-full max-w-7xl items-start">
+      <div className="mx-auto flex h-full min-h-screen w-full justify-center text-center lg:text-start max-w-7xl items-start">
         <div className="max-w-xl px-6 md:px-12 lg:px-16 pt-24 md:pt-28 lg:pt-40">
-          <h1 className="text-pretty font-sans text-4xl md:text-5xl lg:text-4xl font-semibold leading-tight tracking-[-0.01em]">
+          <h1 className="text-pretty  font-matter text-2xl md:text-5xl lg:text-4xl font-semibold leading-tight tracking-[-0.01em]">
             {"Let’s create smarter,"}
             <br />
             {"immersive restaurant"}

@@ -93,7 +93,7 @@ export default function HomePage() {
             <ShardBackgroundSection />
             <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
               <motion.div 
-                className="grid gap-4 md:grid-cols-2"
+                className="grid  lg:px-8 gap-4 md:grid-cols-2"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
@@ -121,8 +121,9 @@ export default function HomePage() {
                     heading="Fast, smart websites that let your guests explore, order, and book"
                     cta="Book a Demo"
                     tag="Smart Menu"
-                    imageSrc="r1.png"
-                    imageOnly
+                    imageSrc="/r1.png"
+                    smallImageSrc="/smallr1.png"
+                  
                   />
                 </motion.div>
                 <motion.div
@@ -139,12 +140,13 @@ export default function HomePage() {
                     cta="Book a Demo"
                     tag="Simple Payment"
                     imageSrc="/r2.png"
-                    imageOnly
+                    smallImageSrc="/smallr2.png"
+              
                   />
                 </motion.div>
               </motion.div>
             </div>
-            <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
+            <div className="mx-auto lg:px-8 max-w-7xl px-4 py-2 md:py-4">
               <motion.div 
                 className="grid gap-4 md:grid-cols-2"
                 initial="hidden"
@@ -174,8 +176,9 @@ export default function HomePage() {
                     heading="Fast, smart websites that let your guests explore, order, and book"
                     cta="Book a Demo"
                     tag="Smart Menu"
-                    imageSrc="l1.png"
-                    imageOnly
+                    imageSrc="/l1.png"
+                    smallImageSrc="/smalll1.png"
+          
                   />
                 </motion.div>
                 <motion.div
@@ -192,7 +195,8 @@ export default function HomePage() {
                     cta="Book a Demo"
                     tag="Simple Payment"
                     imageSrc="/l2.png"
-                    imageOnly
+                    smallImageSrc="/smalll2.png"
+   
                   />
                 </motion.div>
               </motion.div>
