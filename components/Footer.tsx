@@ -7,7 +7,6 @@ export function SiteFooter({ className }: { className?: string }) {
       className={cn(
         "relative overflow-hidden bg-black text-white font-matter",
         "pt-16 md:pt-20 pb-8 md:pb-10",
-        "min-h-screen",
         className,
       )}
       aria-labelledby="footer-heading"
@@ -22,8 +21,18 @@ export function SiteFooter({ className }: { className?: string }) {
       <div className="absolute inset-0 bg-transparent" />
 
       {/* Content */}
-      <div className=" absolute flex flex-col justify-between mx-auto w-full h-screen max-w-6xl px-6 md:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-14">
+      <div className="relative flex flex-col mx-auto w-full max-w-6xl px-6 md:px-8">
+        
+        {/* Mobile Layout - Badge and Let's Talk at top */}
+        <div className="md:hidden flex flex-col items-center pt-8 mb-8">
+          <BadgeStamp className="h-24 w-24 mb-6" />
+          <h1 className="text-4xl font-bold text-white mb-8 text-center">
+            Let's Talk
+          </h1>
+        </div>
+
+        {/* Content Grid */}
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-3 md:gap-14 mb-16 md:mb-24">
           {/* Navigation */}
           <nav aria-label="Footer navigation">
             <h2 id="footer-heading" className="mb-4 text-md font-medium text-zinc-300">
@@ -106,8 +115,8 @@ export function SiteFooter({ className }: { className?: string }) {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-24 flex flex-col items-start justify-between gap-4 md:flex-row">
-          <ul className="flex flex-wrap items-center gap-6 text-xs text-white">
+        <div className="flex flex-col items-start gap-2 md:flex-row pb-8">
+          <ul className="flex flex-wrap items-center gap-3 md:gap-6 text-xs text-white">
             <li>
               <a href="#" className="transition-colors hover:text-zinc-200">
                 User terms of service
@@ -128,8 +137,8 @@ export function SiteFooter({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Lime badge in the top-right */}
-      <BadgeStamp className="pointer-events-none absolute right-20 top-10 h-24 w-24 md:h-36 md:w-36" />
+      {/* Lime badge in the top-right - Desktop only */}
+      <BadgeStamp className="pointer-events-none absolute right-20 top-10 h-24 w-24 md:h-36 md:w-36 hidden md:block" />
     </footer>
   )
 }
