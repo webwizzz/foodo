@@ -11,12 +11,20 @@ export function SiteFooter({ className }: { className?: string }) {
       )}
       aria-labelledby="footer-heading"
     >
-      {/* Background image: Desktop - 209-2 */}
+      {/* Background image: Desktop only */}
       <img
         src="/footerbg.png"
         alt="Brand watermark background"
-        className="pointer-events-none absolute inset-1 h-full w-full object-cover object-bottom opacity-100"
+        className="pointer-events-none absolute inset-1 h-full w-full object-cover object-bottom opacity-100 hidden md:block"
       />
+      
+      {/* Background image: Mobile only */}
+      <img
+        src="/foodo.svg"
+        alt="Foodo brand background"
+        className="pointer-events-none absolute inset-1 h-full w-full object-contain object-bottom pb-36 opacity-100 md:hidden"
+      />
+      
       {/* Simple dark overlay to ensure contrast */}
       <div className="absolute inset-0 bg-transparent" />
 
