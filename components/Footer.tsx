@@ -26,13 +26,14 @@ export function SiteFooter({ className }: { className?: string }) {
         {/* Mobile Layout - Badge and Let's Talk at top */}
         <div className="md:hidden flex flex-col items-center pt-8 mb-8">
           <BadgeStamp className="h-24 w-24 mb-6" />
-          <h1 className="text-4xl font-bold text-white mb-8 text-center">
+          <h1 className="text-5xl font-md tracking-tighter font-matter text-white mb-8 text-center relative group cursor-pointer">
             Let's Talk
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-500 ease-out group-hover:w-full"></span>
           </h1>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-3 md:gap-14 mb-16 md:mb-24">
+        <div className="grid grid-cols-2  md:grid-cols-4 md:gap-14 mb-16 md:mb-24">
           {/* Navigation */}
           <nav aria-label="Footer navigation">
             <h2 id="footer-heading" className="mb-4 text-md font-medium text-zinc-300">
