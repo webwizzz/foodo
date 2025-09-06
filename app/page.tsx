@@ -12,7 +12,6 @@ import GeometricBackgroundSection from "@/components/GeometricBackgroundSection"
 import Header from "@/components/Header"
 import { HeroCard } from "@/components/HeroCard"
 import HeroSection from "@/components/HeroSection"
-import InfiniteMovingCardsDemo from "@/components/infinite-moving-cards-demo"
 import { Mockup } from "@/components/Mockup"
 import Preloader from "@/components/Preloader"
 import Pricing from "@/components/Pricing"
@@ -57,6 +56,10 @@ export default function HomePage() {
           <motion.div 
             ref={smoothWrapperRef} 
             className="min-h-screen overflow-x-clip bg-black text-white font-sans"
+            style={{ 
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch' // iOS momentum scrolling
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -65,27 +68,30 @@ export default function HomePage() {
           {/* Navigation Header */}
           <Header />
 
-          {/* Hero Section */}
-          <HeroSection />
+          {/* Content with padding for fixed header */}
+          <div className="pt-20">
+            {/* Hero Section */}
+            <HeroSection />
 
-          {/* Geometric Background Section */}
-          <GeometricBackgroundSection />
+            {/* Geometric Background Section */}
+            <GeometricBackgroundSection />
 
-          {/* Mobile Layout: WhyFoodoSection first, then FloatingImages */}
-          <div className="block md:hidden">
-            <WhyFoodoSection />
-            <FloatingImages />
-          </div>
-
-          {/* Desktop Layout: FloatingImages first, then WhyFoodoSection */}
-          <div className="hidden md:block">
-            <FloatingImages />
-            <div>
+          {/* WhyFoodo Section - Mobile and Desktop Layouts */}
+          <div id="whyfoodo-section">
+            {/* Mobile Layout: WhyFoodoSection first, then FloatingImages */}
+            <div className="block md:hidden">
               <WhyFoodoSection />
+              <FloatingImages />
             </div>
-          </div>
 
-          <Expfood />
+            {/* Desktop Layout: FloatingImages first, then WhyFoodoSection */}
+            <div className="hidden md:block">
+              <FloatingImages />
+              <div>
+                <WhyFoodoSection />
+              </div>
+            </div>
+          </div>          <Expfood />
           
           <section className="hero overflow-x-hidden">
             <Mockup />
@@ -102,7 +108,7 @@ export default function HomePage() {
           </div>
           
           {/* Shard Background Section that slides over clients */}
-          <div data-sticky-scale="shard" className="relative z-50 bg-black rounded-t-[7rem]">
+          <div id="shard-section" data-sticky-scale="shard" className="relative z-50 bg-black rounded-t-[7rem]">
             <ShardBackgroundSection />
             <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
               <motion.div 
@@ -221,11 +227,16 @@ export default function HomePage() {
                 
       <SpinningWheel />
     
-            <Pricing />
-            <ContactUs />
+            <div id="pricing-section">
+              <Pricing />
+            </div>
+            <div id="contact-section">
+              <ContactUs />
+            </div>
             <FAQSection />
             <SiteFooter />
           </div>
+          </div> {/* Close content wrapper with padding */}
         </div>
           </motion.div>
         )}

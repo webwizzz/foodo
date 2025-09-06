@@ -2,12 +2,68 @@
 
 import { Button } from "@/components/ui/button"
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
+import { motion } from "framer-motion"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 import SidebarMenu from "./Header/SidebarMenu"
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Enhanced smooth scroll function with easing
+  const smoothScrollTo = (targetId: string) => {
+    const targetElement = document.getElementById(targetId)
+    if (targetElement) {
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 80 // Account for header height
+      
+      // Use requestAnimationFrame for smoother scrolling
+      const startPosition = window.pageYOffset
+      const distance = targetPosition - startPosition
+      const duration = Math.min(Math.abs(distance) / 2, 1000) // Max 1 second
+      let startTime: number | null = null
+
+      function easeInOutCubic(t: number): number {
+        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+      }
+
+      function animation(currentTime: number) {
+        if (startTime === null) startTime = currentTime
+        const timeElapsed = currentTime - startTime
+        const progress = Math.min(timeElapsed / duration, 1)
+        
+        window.scrollTo(0, startPosition + distance * easeInOutCubic(progress))
+        
+        if (progress < 1) {
+          requestAnimationFrame(animation)
+        }
+      }
+
+      requestAnimationFrame(animation)
+    }
+  }
+
   return (
-    <header className="flex items-center justify-between px-4 py-4  lg:px-6 relative font-matter">
+    <header 
+      className={`
+        flex items-center justify-between px-4 py-4 lg:px-6 
+        fixed top-0 left-0 right-0 z-50 font-matter
+        transition-all duration-300 ease-in-out
+        ${isScrolled 
+          ? 'bg-black/50 backdrop-blur-lg border-b border-white/10 shadow-lg' 
+          : 'bg-transparent'
+        }
+      `}
+    >
       {/* Logo */}
       <div className="flex items-center">
         <Image
@@ -21,19 +77,39 @@ export default function Header() {
       </div>
 
       {/* Navigation Menu - Hidden on mobile, visible on md+ */}
-      <nav className="hidden  md:flex pl-48  items-center space-x-4">
-        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
+      <nav className="hidden  md:flex pl-48  items-center space-x-7">
+        <motion.button
+          onClick={() => smoothScrollTo('whyfoodo-section')}
+          className="text-[#B4B4B4] hover:text-white transition-colors font-light text-md cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Product
-        </a>
-        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
+        </motion.button>
+        <motion.button
+          onClick={() => smoothScrollTo('shard-section')}
+          className="text-[#B4B4B4] hover:text-white transition-colors font-light text-md cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           How it Work
-        </a>
-        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
+        </motion.button>
+        <motion.button
+          onClick={() => smoothScrollTo('pricing-section')}
+          className="text-[#B4B4B4] hover:text-white transition-colors font-light text-md cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Pricing
-        </a>
-        <a href="#" className="text-[#B4B4B4] hover:text-gray-300 transition-colors font-light text-md">
+        </motion.button>
+        <motion.button
+          onClick={() => smoothScrollTo('contact-section')}
+          className="text-[#B4B4B4] hover:text-white transition-colors font-light text-md cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Company
-        </a>
+        </motion.button>
       </nav>
 
       {/* Action Buttons - Hidden on mobile, visible on md+ */}
