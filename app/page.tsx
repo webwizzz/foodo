@@ -22,6 +22,7 @@ import SocialPromotionsSection from "@/components/SocialPromotionSection"
 import StatsSection from "@/components/StatsSection"
 import VideoSection from "@/components/VideoSection"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
+import { useStickyScale } from "@/hooks/useStickyScaleNew"
 import { AnimatePresence, motion } from "framer-motion"
 import { useRef, useState } from "react"
 
@@ -29,6 +30,9 @@ export default function HomePage() {
   const smoothWrapperRef = useRef<HTMLDivElement>(null)
   const smoothContentRef = useRef<HTMLDivElement>(null)
   const [loadingComplete, setLoadingComplete] = useState(false)
+  
+  // Initialize sticky scale behavior
+  useStickyScale()
 
   const handleLoadingComplete = () => {
     setLoadingComplete(true)
@@ -86,10 +90,18 @@ export default function HomePage() {
             <Mockup />
           </section>
 
-          <StatsSection />
-          <Clients/>
+          {/* Sticky Stats Section that scales down */}
+          <div data-sticky-scale="stats">
+            <StatsSection />
+          </div>
           
-          <div className=" relative z-50 bg-black rounded-t-[7rem] ">
+          {/* Clients Section that slides over */}
+          <div data-sticky-scale="clients">
+            <Clients/>
+          </div>
+          
+          {/* Shard Background Section that slides over clients */}
+          <div data-sticky-scale="shard" className="relative z-50 bg-black rounded-t-[7rem]">
             <ShardBackgroundSection />
             <div className="mx-auto max-w-7xl px-4 py-2 md:py-4">
               <motion.div 
