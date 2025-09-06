@@ -19,7 +19,7 @@ const FEATURE_GROUPS = [
 export default function Pricing() {
   return (
     <main className="bg-black text-white min-h-screen">
-      <section className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24 lg:py-28">
+      <section className="mx-auto max-w-7xl px-4 md:px-6 transform -translate-y-30 py-16 md:pb-24 lg:pb-28">
         <header className="text-center mb-12 md:mb-16">
           <h1 className="font-matter text-balance text-4xl md:text-5xl font-semibold">
             Choose the right plan for

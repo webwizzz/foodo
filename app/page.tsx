@@ -19,6 +19,7 @@ import Pricing from "@/components/Pricing"
 import ShardBackgroundSection from "@/components/ShardBackgroundSection"
 import SmoothScrollInit from "@/components/SmoothScrollInit"
 import SocialPromotionsSection from "@/components/SocialPromotionSection"
+import SpinningWheel from "@/components/SpinningWheel"
 import StatsSection from "@/components/StatsSection"
 import VideoSection from "@/components/VideoSection"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
@@ -217,7 +218,9 @@ export default function HomePage() {
             <Demo />
             <VideoSection />
             <SocialPromotionsSection />
-            <InfiniteMovingCardsDemo />
+                
+      <SpinningWheel />
+    
             <Pricing />
             <ContactUs />
             <FAQSection />
