@@ -132,7 +132,7 @@ export default function GeometricBackgroundSection() {
           <img
             src="/smallscnanner.png"
             alt="QR Scanner"
-            className="w-full h-full  object-contain drop-shadow-lg"
+            className="w-[50%] h-[50%]  object-contain drop-shadow-lg"
           />
         </motion.div>
         
