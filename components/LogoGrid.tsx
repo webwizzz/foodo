@@ -9,8 +9,30 @@ function LogoCell({ src, label = "Brand logo" }: LogoCellProps) {
 }
 
 export function LogoGrid() {
-  // 15 cells -> alternate between the two SVGs you provided
-  const sources = Array.from({ length: 15 }, (_, i) => (i % 2 === 0 ? "a.svg" : "b.svg"))
+  // Real restaurant/brand logos
+  const logoSources = [
+    "logos/antonioetta.png",
+    "logos/bangkok.png",
+    "logos/bavette.png",
+    "logos/big jhon.png",
+    "logos/bruncho.png",
+    "logos/vu ounge.png",
+    "logos/chicking.png",
+    "logos/istanbul.png",
+    "logos/chutnee.png",
+    "logos/farmhouse.png",
+    "logos/Mask group.png",
+    "logos/hey farina.png",
+    "logos/m.png",
+    "logos/tiffin box.png",
+    "logos/ora.png",
+    "logos/noor cafe.png",
+    "logos/tikka nation.png",
+    "logos/cafe begum.png",
+  ]
+
+  // Take first 15 logos for the grid
+  const sources = logoSources.slice(0, 15)
 
   return (
     <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 place-items-center">
