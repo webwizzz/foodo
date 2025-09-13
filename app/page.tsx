@@ -13,7 +13,6 @@ import Header from "@/components/Header"
 import { HeroCard } from "@/components/HeroCard"
 import HeroSection from "@/components/HeroSection"
 import { Mockup } from "@/components/Mockup"
-import Preloader from "@/components/Preloader"
 import Pricing from "@/components/Pricing"
 import ShardBackgroundSection from "@/components/ShardBackgroundSection"
 import SmoothScrollInit from "@/components/SmoothScrollInit"
@@ -23,47 +22,31 @@ import StatsSection from "@/components/StatsSection"
 import VideoSection from "@/components/VideoSection"
 import WhyFoodoSection from "@/components/WhyFoodoSection"
 import { useStickyScale } from "@/hooks/useStickyScaleNew"
-import { AnimatePresence, motion } from "framer-motion"
-import { useRef, useState } from "react"
+import { motion } from "framer-motion"
+import { useRef } from "react"
 
 export default function HomePage() {
   const smoothWrapperRef = useRef<HTMLDivElement>(null)
   const smoothContentRef = useRef<HTMLDivElement>(null)
-  const [loadingComplete, setLoadingComplete] = useState(false)
-  
   // Initialize sticky scale behavior
   useStickyScale()
-
-  const handleLoadingComplete = () => {
-    setLoadingComplete(true)
-  }
 
   return (
     <>
       {/* Smooth Scroll Initialization */}
       <SmoothScrollInit />
-      
-      {/* Awwwards-style Preloader */}
-      <AnimatePresence mode="wait">
-        {!loadingComplete && (
-          <Preloader onLoadingComplete={handleLoadingComplete} />
-        )}
-      </AnimatePresence>
-      
       {/* Main Content */}
-      <AnimatePresence>
-        {loadingComplete && (
-          <motion.div 
-            ref={smoothWrapperRef} 
-            className="min-h-screen overflow-x-clip bg-black text-white font-sans"
-            style={{ 
-              scrollBehavior: 'smooth',
-              WebkitOverflowScrolling: 'touch' // iOS momentum scrolling
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+      <motion.div 
+        ref={smoothWrapperRef} 
+        className="min-h-screen overflow-x-clip bg-black text-white font-sans"
+        style={{ 
+          scrollBehavior: 'smooth',
+          WebkitOverflowScrolling: 'touch' // iOS momentum scrolling
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div ref={smoothContentRef}>
           {/* Navigation Header */}
           <Header />
@@ -76,28 +59,26 @@ export default function HomePage() {
             {/* Geometric Background Section */}
             <GeometricBackgroundSection />
 
-          {/* WhyFoodo Section - Mobile and Desktop Layouts */}
-          <div id="whyfoodo-section">
-            {/* Mobile Layout: WhyFoodoSection first, then FloatingImages */}
-            <div className="block md:hidden">
-              <WhyFoodoSection />
-              <FloatingImages />
-            </div>
-
-            {/* Desktop Layout: FloatingImages first, then WhyFoodoSection */}
-            <div className="hidden md:block">
-              <FloatingImages />
-              <div>
+            {/* WhyFoodo Section - Mobile and Desktop Layouts */}
+            <div id="whyfoodo-section">
+              {/* Mobile Layout: WhyFoodoSection first, then FloatingImages */}
+              <div className="block md:hidden">
                 <WhyFoodoSection />
+                <FloatingImages />
+              </div>
+
+              {/* Desktop Layout: FloatingImages first, then WhyFoodoSection */}
+              <div className="hidden md:block">
+                <FloatingImages />
+                <div>
+                  <WhyFoodoSection />
+                </div>
               </div>
             </div>
-          </div>          <Expfood />
-          
-          <section className="hero overflow-x-hidden">
-            <Mockup />
-          </section>
-
-          {/* Sticky Stats Section that scales down */}
+            <Expfood />
+            <section className="hero overflow-x-hidden">
+              <Mockup />
+            </section>
           <div data-sticky-scale="stats">
             <StatsSection />
           </div>
@@ -238,9 +219,7 @@ export default function HomePage() {
           </div>
           </div> {/* Close content wrapper with padding */}
         </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </motion.div>
     </>
   )
 }
