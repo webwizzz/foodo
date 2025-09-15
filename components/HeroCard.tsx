@@ -66,7 +66,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
       variants={fadeInUp}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn(
-        "relative overflow-hidden rounded-[32px] p-8 md:p-8 min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem]",
+        "relative overflow-hidden rounded-[20px] p-8 md:p-8 min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem]",
         "bg-cover bg-center bg-no-repeat",
         smallImageSrc && "md:[background-image:var(--bg-desktop)]",
         isDark ? "text-white" : "text-white",

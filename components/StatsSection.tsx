@@ -51,7 +51,7 @@ export default function StatsSection() {
                   delay: 0.4 + (index * 0.1) 
                 }}
               >
-                <div className="font-sans text-6xl md:text-7xl font-semibold leading-none tracking-tight">
+                <div className="font-matter text-4xl md:text-7xl font-semibold leading-none tracking-tight">
                   <AnimatedNumber
                     value={s.value}
                     suffix={s.suffix}
@@ -59,7 +59,7 @@ export default function StatsSection() {
                     abbr={s.abbr ?? "none"}
                   />
                 </div>
-                <p className="mt-4 md:mt-4 font-sans text-xl md:text-xl  font-semibold text-black">{s.label}</p>
+                <p className="mt-4 md:mt-4 font-matter text-md md:text-xl font-normal tracking-tighter lg:font-semibold text-black">{s.label}</p>
               </motion.div>
             ))}
           </motion.div>

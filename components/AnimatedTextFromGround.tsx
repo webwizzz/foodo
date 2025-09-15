@@ -37,7 +37,7 @@ export default function AnimatedTextFromGround({ text }: { text: string }) {
       {text.split("\n").map((line, i) => (
         <div
           key={i}
-          className="text-white text-2xl md:text-4xl font-semibold text-center leading-tight "
+          className="text-white text-xl md:text-4xl font-semibold text-center leading-tight "
           style={{ willChange: "transform, opacity" }}
         >
           {line}

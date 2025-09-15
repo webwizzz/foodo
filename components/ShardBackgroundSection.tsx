@@ -2,7 +2,7 @@
 
 export default function HeroScrollDemo() {
   return (
-    <div className="flex flex-col overflow-hidden pt-10">
+    <div className="flex flex-col overflow-hidden pt-20 pb-2">
       <div className="flex flex-col items-center justify-center px-4">
         <h1 className="text-2xl font-matter lg:text-4xl font-semibold text-black dark:text-white text-center mb-10">
           Smart,Seamless, <br />
@@ -10,7 +10,7 @@ export default function HeroScrollDemo() {
             AI-Powered Solutions for<br/> Modern Restaurants
           </span>
         </h1>
-        <div className="relative mx-auto rounded-2xl object-cover object-center min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem] w-full max-w-6xl">
+        <div className="relative mx-auto rounded-xl object-cover object-center min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem] w-full max-w-[73rem]">
           {/* Background image */}
           <img
             src={"/shard.png"}
@@ -26,15 +26,15 @@ export default function HeroScrollDemo() {
             {/* Left side text content */}
             <div className="absolute top-8 left-8 md:left-12 lg:left-10 max-w-lg z-30">
               <div className="mb-4">
-                <span className="inline-block px-3 py-1 text-sm font-medium text-white rounded-full">
+                <span className="inline-block  py-1 text-sm font-medium text-white rounded-full">
                   AI Website
                 </span>
               </div>
-              <h2 className="text-xl md:text-2xl lg:text-2xl font-semibold text-white mb-2 font-matter leading-tight">
+              <h2 className="text-xl md:text-2xl lg:text-2xl font-semibold text-white mb-4 font-matter leading-tight">
                 Fast, smart websites that<br />
                 let your guests explore, order, and book
               </h2>
-              <button className="px-4 py-2 bg-white text-black font-md text-sm rounded-full hover:bg-gray-100 tracking-tighter transition-colors">
+              <button className="px-4 py-2 bg-white text-black font-semibold text-sm rounded-full hover:bg-gray-100 tracking-tighter transition-colors">
                 Book a Demo
               </button>
             </div>
