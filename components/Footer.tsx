@@ -5,7 +5,7 @@ export function SiteFooter({ className }: { className?: string }) {
   return (
     <footer
       className={cn(
-        "relative overflow-hidden bg-black text-white font-matter",
+        "relative overflow-hidden bg-black text-white min-h-screen font-matter",
         "pt-16 md:pt-20 pb-8 md:pb-10",
         className,
       )}
@@ -29,8 +29,7 @@ export function SiteFooter({ className }: { className?: string }) {
       <div className="absolute inset-0 bg-transparent" />
 
       {/* Content */}
-      <div className="relative flex flex-col mx-auto w-full max-w-6xl px-6 md:px-8">
-        
+      <div className="relative flex flex-col mx-auto w-full max-w-6xl  md:px-8 min-h-[85vh]">
         {/* Mobile Layout - Badge and Let's Talk at top */}
         <div className="md:hidden flex flex-col items-center pt-8 mb-8">
           <BadgeStamp className="h-24 w-24 mb-6" />
@@ -124,7 +123,7 @@ export function SiteFooter({ className }: { className?: string }) {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-col items-start gap-2 md:flex-row pb-8">
+        <div className="flex flex-col items-end gap-2 md:flex-row pb-0 mt-auto w-full">
           <ul className="flex flex-wrap items-center gap-3 md:gap-6 text-xs text-white">
             <li>
               <a href="#" className="transition-colors hover:text-zinc-200">
@@ -142,7 +141,7 @@ export function SiteFooter({ className }: { className?: string }) {
               </a>
             </li>
           </ul>
-          <p className="text-xs text-white">2024 © foodo. All right reserved.</p>
+          <p className="text-xs text-white md:ml-auto md:text-right">2024 © foodo. All right reserved.</p>
         </div>
       </div>
 
