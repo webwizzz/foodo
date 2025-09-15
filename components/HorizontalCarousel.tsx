@@ -134,13 +134,14 @@ export default function HorizontalCarousel({
       >
         {/* first card gets a ref to compute width for snapping arrows */}
         <div ref={firstCardRef} className="contents">
-          {items.map((item) => (
+          {items.map((item, idx) => (
             <CarouselCard
               key={item.id}
               label={item.label}
               title={item.title}
               image={item.image}
               emphasis={item.emphasis}
+              textColor={idx === 0 ? "black" : undefined}
             />
           ))}
         </div>

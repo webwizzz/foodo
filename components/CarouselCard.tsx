@@ -8,10 +8,13 @@ type CardProps = {
   title: string
   image: string
   emphasis?: "light" | "dark"
+  textColor?: "black" | "white"
 }
 
-export default function CarouselCard({ label, title, image, emphasis = "dark" }: CardProps) {
+export default function CarouselCard({ label, title, image, emphasis = "dark", textColor }: CardProps) {
   const light = emphasis === "light"
+  const textClass = textColor === "black" ? "text-black" : "text-white"
+  const labelClass = textColor === "black" ? "text-black/85" : "text-white/85"
   return (
     <article
       className={cn(
@@ -26,12 +29,11 @@ export default function CarouselCard({ label, title, image, emphasis = "dark" }:
       <Image src={image || "/placeholder.svg"} alt="" fill className="object-cover" priority={false} />
 
       {/* Readability overlay */}
-      
 
       <div className="relative z-10 flex h-full flex-col">
         <div className="p-4 sm:p-5 md:p-6 lg:p-7">
-          <p className="text-xs sm:text-sm font-medium tracking-wide uppercase text-white/85">{label}</p>
-          <h3 className="mt-2 max-w-[20ch] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-tight text-white">{title}</h3>
+          <p className={cn("text-xs sm:text-sm font-medium tracking-wide uppercase", labelClass)}>{label}</p>
+          <h3 className={cn("mt-2 max-w-[20ch] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-tight", textClass)}>{title}</h3>
         </div>
         {/* Spacer region for image focus in lower part */}
         <div className="mt-auto p-4 sm:p-5 md:p-6 lg:p-7" aria-hidden="true" />
