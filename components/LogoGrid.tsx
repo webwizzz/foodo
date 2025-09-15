@@ -3,7 +3,7 @@ type LogoCellProps = { src: string; label?: string }
 function LogoCell({ src, label = "Brand logo" }: LogoCellProps) {
   return (
     <div className="flex items-center justify-center">
-      <img src={src || "/placeholder.svg"} alt={label} className="h-6 sm:h-8 md:h-9 lg:h-10 xl:h-12 w-auto opacity-95" />
+      <img src={src || "/placeholder.svg"} alt={label} className="h-8 sm:h-8 md:h-9 lg:h-10 xl:h-18 w-auto opacity-95" />
     </div>
   )
 }
@@ -29,7 +29,7 @@ export function LogoGrid() {
   ];
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 place-items-center">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 sm:gap-7 md:gap-9 lg:gap-11 xl:gap-13 place-items-center">
       {sources.map((src, i) => (
         <LogoCell key={i} src={src} />
       ))}

@@ -8,15 +8,44 @@ export default function Clients() {
         Trusted Clients
       </h2>
       
-      {/* Mobile Layout - Simple gradient background */}
-      <div className="block md:hidden w-full max-w-sm mx-auto">
-        <div className="relative rounded-2xl overflow-hidden p-8" 
-             style={{
-               background: 'linear-gradient(135deg, #1a1a1a 0%, #2d4a2d 50%, #1a1a1a 100%)'
-             }}>
-          <LogoGrid />
+      {/* Mobile Layout - Neon effects (smaller version) */}
+      <motion.div
+        className="block md:hidden w-full max-w-sm mx-auto relative rounded-2xl overflow-hidden shadow-xl aspect-square"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring', stiffness: 60, damping: 18, duration: 0.9 }}
+        viewport={{ once: true, amount: 0.4 }}
+      >
+        {/* Background image for mobile */}
+        <img
+          src="/neonsmall.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        {/* Overlay behind glows */}
+        <div className="absolute inset-0 bg-black/65 z-[1]" aria-hidden="true" />
+
+        {/* Smaller neon circles for mobile */}
+        <div className="pointer-events-none absolute inset-0 z-[2]" aria-hidden="true">
+          <div
+            className="absolute right-[-25%] top-[-50%] h-[190px] w-[190px] rounded-full neon-blur"
+            style={{ background: "#ABEF26" }}
+          />
+          <div
+            className="absolute left-[-20%] bottom-[-10%] h-[180px] w-[180px] rounded-full neon-blur"
+            style={{ background: "#ABEF26" }}
+          />
         </div>
-      </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full w-full flex items-center justify-center p-6">
+          <div className="w-[92%]">
+            <LogoGrid />
+          </div>
+        </div>
+      </motion.div>
 
       {/* Desktop Layout - Neon effects */}
       <motion.section
