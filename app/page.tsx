@@ -38,7 +38,7 @@ export default function HomePage() {
       {/* Main Content */}
       <motion.div 
         ref={smoothWrapperRef} 
-        className="min-h-screen overflow-x-clip bg-black text-white font-sans"
+        className="min-h-screen overflow-x-clip bg-black text-white font-matter"
         style={{ 
           scrollBehavior: 'smooth',
           WebkitOverflowScrolling: 'touch' // iOS momentum scrolling

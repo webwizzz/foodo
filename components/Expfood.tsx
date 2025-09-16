@@ -31,7 +31,7 @@ export function Expfood({
           initial={{ y: 50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-balance font-Matter text-[#F3F0F0] font-semibold text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          className="text-balance font-matter text-[#F3F0F0] font-semibold text-4xl md:text-5xl lg:text-6xl tracking-tight"
         >
           Experience Food
         </motion.h2>
@@ -48,7 +48,7 @@ export function Expfood({
                 delay: 0.3 + (index * 0.1),
                 ease: "easeOut"
               }}
-              className="text-pretty font-matter text-[#C3C3C3]0 text-lg md:text-xl leading-tight"
+              className="text-pretty font-semibold font-matter text-[#C3C3C3] text-lg md:text-[18px] leading-snug"
             >
               {phrase}
             </motion.p>

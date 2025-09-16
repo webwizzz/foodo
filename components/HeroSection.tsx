@@ -62,14 +62,14 @@ export default function HeroSection() {
 
   return (
     <motion.main 
-      className="flex flex-col overflow-x-hidden items-center justify-center text-center px-6 py-12 lg:py-32"
+      className="flex flex-col overflow-x-hidden items-center justify-center text-center px-6 pt-12 lg:pt-32"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <div className="max-w-4xl mx-auto">
         {/* Main Heading with split animation */}
-        <div className="text-5xl lg:text-6xl font-semibold mb-4 text-[#F3F0F0] font-matter">
+        <div className="text-5xl lg:text-[72px] font-medium mb-4 text-[#F3F0F0] font-matter">
           <motion.div
             variants={slideInFromLeft}
             className="overflow-hidden"
@@ -104,7 +104,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <motion.p 
-          className="text-lg lg:text-xl text-[#C3C3C3] mb-4 max-w-2xl lg:max-w-3xl mx-auto text-balance leading-tight"
+          className="text-lg lg:text-[20px] text-[#C3C3C3] mb-4 max-w-2xl lg:max-w-3xl font-medium mx-auto text-balance leading-tight"
           variants={fadeInUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
           data-scroll

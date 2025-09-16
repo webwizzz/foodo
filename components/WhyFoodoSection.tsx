@@ -73,7 +73,7 @@ export default function WhyFoodoSection() {
             {textPhrases.map((phrase, index) => (
               <motion.p 
                 key={index} 
-                className="text-lg lg:text-xl text-[#C3C3C3] leading-tight font-normal"
+                className="text-lg lg:text-[18px] text-[#C3C3C3] leading-snug font-semibold"
                 initial={{ y: 30, opacity: 0 }}
                 animate={textInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                 transition={{ 

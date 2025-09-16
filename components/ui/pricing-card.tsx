@@ -162,7 +162,7 @@ export function PricingCard({ title, price, features, baseFeatures, groups, high
               <div key={group.title + idx}>
                 <h4
                   className={cn(
-                    "font-sans text-base md:text-xl font-semibold mb-3",
+                    "font-matter text-base md:text-xl font-semibold mb-3",
                     customBgColor 
                       ? (isLightBg ? "text-black" : "text-white")
                       : (isHighlight ? "text-black" : "text-white"),
@@ -231,7 +231,7 @@ export function PricingCard({ title, price, features, baseFeatures, groups, high
                     <div key={group.title + idx}>
                       <h4
                         className={cn(
-                          "font-sans text-base font-semibold mb-3",
+                          "font-matter text-base font-semibold mb-3",
                           customBgColor 
                             ? (isLightBg ? "text-black" : "text-white")
                             : (isHighlight ? "text-black" : "text-white"),
