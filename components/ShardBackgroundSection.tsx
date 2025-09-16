@@ -30,7 +30,7 @@ export default function HeroScrollDemo() {
                   AI Website
                 </span>
               </div>
-              <h2 className="text-xl md:text-2xl lg:text-2xl font-semibold text-white mb-4 font-matter leading-tight">
+              <h2 className="text-xl md:text-2xl lg:text-[28px] font-medium text-white mb-4 font-matter leading-tight">
                 Fast, smart websites that<br />
                 let your guests explore, order, and book
               </h2>
