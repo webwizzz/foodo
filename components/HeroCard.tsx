@@ -96,15 +96,15 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
           {/* Left side text content */}
           <div className="absolute top-8 left-8 md:left-12 lg:left-16 max-w-lg z-30">
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-sm font-medium text-white bg-black/20 backdrop-blur-sm rounded-full">
+              <span className="inline-block px-3 py-1 text-sm font-medium text-white backdrop-blur-sm rounded-full">
                 {overlayContent.badge}
               </span>
             </div>
-            <h2 className="text-sm md:text-xl lg:text-2xl font-light font-matter lg:font-semibold text-white mb-4 leading-tighter">
+            <h2 className="text-sm md:text-xl lg:text-[28px] font-light font-matter lg:font-medium text-white mb-4 leading-tighter">
               {overlayContent.title}
             </h2>
             {overlayContent.description && (
-              <p className="text-white/80 mb-6 text-sm md:text-base">
+              <p className="text-white mb-6 text-sm md:text-base">
                 {overlayContent.description}
               </p>
             )}
@@ -139,7 +139,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
           </motion.p>
 
           <motion.h2 
-            className="mt-6 text-pretty text-xl md:text-2xl font-matter font-semibold leading-tight"
+            className="mt-6 text-pretty text-xl md:text-[28px] font-matter font-medium leading-tight"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.6 }}
