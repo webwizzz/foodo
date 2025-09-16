@@ -32,7 +32,7 @@ export default function CarouselCard({ label, title, image, emphasis = "dark", t
 
       <div className="relative z-10 flex h-full flex-col">
         <div className="p-4 sm:p-5 md:p-6 lg:p-7">
-          <p className={cn("text-xs sm:text-sm font-medium tracking-wide uppercase", labelClass)}>{label}</p>
+          <p className={cn("text-xs sm:text-sm font-semibold tracking-wide", labelClass)}>{label}</p>
           <h3 className={cn("mt-2 max-w-[20ch] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-tight", textClass)}>{title}</h3>
         </div>
         {/* Spacer region for image focus in lower part */}

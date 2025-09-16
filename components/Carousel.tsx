@@ -58,7 +58,7 @@ export default function Carousel() {
   return (
     <main className="bg-black text-white min-h-1/2 lg:min-h-screen">
       <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 py-8 md:py-10 lg:py-14">
-        <h2 className="text-pretty font-matter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight px-2 sm:px-0">Get to Know Foodo</h2>
+        <h2 className="text-pretty font-matter text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-medium tracking-tight px-2 sm:px-0">Get to Know Foodo</h2>
 
         <div className="mt-4 sm:mt-6 md:mt-8">
           <HorizontalCarousel ariaLabel="Foodo feature cards carousel" items={items} />
