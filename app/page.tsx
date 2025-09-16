@@ -140,7 +140,7 @@ export default function HomePage() {
                     cta="Book a Demo"
                     tag="Simple Payment"
                     imageSrc="/r2.png"
-                    smallImageSrc="/smallr2.png"
+                    smallImageSrc="/smalll1.png"
               
                   />
                 </motion.div>
@@ -175,9 +175,9 @@ export default function HomePage() {
                     label="AI Website"
                     heading="Fast, smart websites that let your guests explore, order, and book"
                     cta="Book a Demo"
-                    tag="Smart Menu"
-                    imageSrc="/l1.png"
-                    smallImageSrc="/smalll1.png"
+                    tag=""
+                    imageSrc="/menu.png"
+                    smallImageSrc="/smallmenu.png"
           
                   />
                 </motion.div>
@@ -194,8 +194,8 @@ export default function HomePage() {
                     heading="Fast, smart websites that let your guests explore, order, and book"
                     cta="Book a Demo"
                     tag="Simple Payment"
-                    imageSrc="/l2.png"
-                    smallImageSrc="/smalll2.png"
+                    imageSrc="/ordering.png"
+                    smallImageSrc="/smallr2.png"
    
                   />
                 </motion.div>

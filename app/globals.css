@@ -185,3 +185,14 @@ body {
   background: black;
 }
 
+/* Responsive background images for HeroCard */
+.hero-card-responsive {
+  background-image: var(--bg-mobile);
+}
+
+@media (min-width: 768px) {
+  .hero-card-responsive {
+    background-image: var(--bg-desktop);
+  }
+}
+

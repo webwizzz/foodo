@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <header 
       className={`
-        flex items-center justify-between px-4 py-4 lg:px-6 
+        flex items-center justify-between px-8 py-4 lg:px-16 
         fixed top-0 left-0 right-0 z-50 font-matter
         transition-all duration-300 ease-in-out
         ${isScrolled 
@@ -77,7 +77,7 @@ export default function Header() {
       </div>
 
       {/* Navigation Menu - Hidden on mobile, visible on md+ */}
-      <nav className="hidden  md:flex pl-48  items-center space-x-7">
+      <nav className="hidden  md:flex pl-48  items-center space-x-10">
         <motion.button
           onClick={() => smoothScrollTo('whyfoodo-section')}
           className="text-[#B4B4B4] hover:text-white transition-colors font-light text-md cursor-pointer"
@@ -92,7 +92,7 @@ export default function Header() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          How it Work
+          How it Works
         </motion.button>
         <motion.button
           onClick={() => smoothScrollTo('pricing-section')}
@@ -113,7 +113,7 @@ export default function Header() {
       </nav>
 
       {/* Action Buttons - Hidden on mobile, visible on md+ */}
-      <div className="hidden md:flex items-center space-x-2">
+      <div className="hidden md:flex items-center space-x-4">
         <HoverBorderGradient
           as="a"
           containerClassName="rounded-full"

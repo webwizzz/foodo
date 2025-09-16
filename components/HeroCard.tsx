@@ -30,7 +30,6 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
   const backgroundStyle = smallImageSrc ? {
     '--bg-mobile': `url(${smallImageSrc})`,
     '--bg-desktop': `url(${imageSrc})`,
-    backgroundImage: 'var(--bg-mobile)',
   } as React.CSSProperties : {
     backgroundImage: `url(${imageSrc || "/placeholder.svg?height=600&width=600&query=card%20background"})`
   }
@@ -46,7 +45,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
         className={cn(
           "relative overflow-hidden rounded-[32px]  min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem]",
           "bg-cover bg-center bg-no-repeat",
-          smallImageSrc && "md:[background-image:var(--bg-desktop)]",
+          smallImageSrc && "hero-card-responsive",
           "ring-1",
           isDark ? "ring-white/10" : "ring-black/10",
           "shadow-2xl",
@@ -68,7 +67,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
       className={cn(
         "relative overflow-hidden rounded-[20px] p-8 md:p-8 min-h-[28rem] md:min-h-[36rem] lg:min-h-[40rem]",
         "bg-cover bg-center bg-no-repeat",
-        smallImageSrc && "md:[background-image:var(--bg-desktop)]",
+        smallImageSrc && "hero-card-responsive",
         isDark ? "text-white" : "text-white",
         "ring-1",
         isDark ? "ring-white/10" : "ring-black/10",
@@ -130,7 +129,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
         /* Original content layout */
         <div className="relative z-10">
           <motion.p 
-            className="text-sm font-medium text-white/80"
+            className="text-[16px]  text-white font-semibold"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
@@ -149,7 +148,7 @@ export function HeroCard({ variant = "light", label, heading, cta, tag, imageSrc
 
           <motion.button
             className={cn(
-              "mt-8 inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium bg-white text-neutral-900 shadow",
+              "mt-8 inline-flex items-center justify-center rounded-full px-3 py-2 text-md font-medium bg-white text-black shadow",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
               isDark
                 ? "focus-visible:ring-white/60 focus-visible:ring-offset-neutral-900"
