@@ -13,19 +13,20 @@ export function LogoGrid() {
   const sources = [
     "logos/Group 1171275112.svg",
     "logos/Group 7.svg",
-    "logos/Isolation_Mode-2.svg",
     "logos/Isolation_Mode.svg",
     "logos/Layer_1.svg",
+    "123.svg",
     "logos/OBJECTS-2.svg",
-    "logos/VU Logo Small Res (1) 2.svg",
+    "logos/VU Logo Small Res (1) 2-2.svg",
     "logos/cropped-BavetteSteak 1.svg",
     "logos/image 25.svg",
     "logos/image 39.svg",
     "logos/image 553.svg",
     "logos/image 67-2.svg",
     "logos/image 67-3.svg",
+    "logos/Isolation_Mode-2.svg",
     "logos/image 67-4.svg",
-    "logos/logo ideations (1) 2.svg"
+    
   ];
 
   return (
