@@ -17,6 +17,7 @@ export function LogoGrid() {
     "logos/Layer_1.svg",
     "tugra.svg",
     "logos/OBJECTS-2.svg",
+    "Farmhouse.svg",
     "logos/VU Logo Small Res (1) 2-2.svg",
     "logos/cropped-BavetteSteak 1.svg",
     "logos/image 25.svg",
