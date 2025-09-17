@@ -17,12 +17,13 @@ export function LogoGrid() {
     "logos/Layer_1.svg",
     "tugra.svg",
     "logos/OBJECTS-2.svg",
-    "Farmhouse.svg",
+    
     "logos/VU Logo Small Res (1) 2-2.svg",
+    "Farmhouse.svg",
     "logos/cropped-BavetteSteak 1.svg",
     "logos/image 25.svg",
     "logos/image 39.svg",
-    "logos/image 553.svg",
+    
     "logos/image 67-2.svg",
     "logos/image 67-3.svg",
     "logos/Isolation_Mode-2.svg",
