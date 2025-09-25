@@ -171,7 +171,7 @@ export function ContactModal({ isOpen, onClose, onSubmit }: ContactModalProps) {
                     id="name"
                     value={formData.name}
                     onChange={handleInputChange("name")}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors text-black placeholder-gray-500 ${
                       errors.name ? "border-red-300 bg-red-50" : "border-gray-300"
                     }`}
                     placeholder="Enter your full name"
@@ -189,7 +189,7 @@ export function ContactModal({ isOpen, onClose, onSubmit }: ContactModalProps) {
                     id="email"
                     value={formData.email}
                     onChange={handleInputChange("email")}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors text-black placeholder-gray-500 ${
                       errors.email ? "border-red-300 bg-red-50" : "border-gray-300"
                     }`}
                     placeholder="Enter your email address"
@@ -207,7 +207,7 @@ export function ContactModal({ isOpen, onClose, onSubmit }: ContactModalProps) {
                     id="phone"
                     value={formData.phone}
                     onChange={handleInputChange("phone")}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-lime-500 focus:border-transparent outline-none transition-colors text-black placeholder-gray-500 ${
                       errors.phone ? "border-red-300 bg-red-50" : "border-gray-300"
                     }`}
                     placeholder="Enter your phone number"
