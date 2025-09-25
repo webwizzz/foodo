@@ -18,18 +18,30 @@ type PricingCardProps = {
   groups?: FeatureGroup[]
   highlight?: boolean
   customBgColor?: string
+  // new props for shared state
+  isPriceVisible?: boolean
+  onViewPriceClick?: () => void
 }
 
-export function PricingCard({ title, price, features, baseFeatures, groups, highlight, customBgColor }: PricingCardProps) {
+export function PricingCard({ 
+  title, 
+  price, 
+  features, 
+  baseFeatures, 
+  groups, 
+  highlight, 
+  customBgColor,
+  isPriceVisible = false,
+  onViewPriceClick
+}: PricingCardProps) {
   const isHighlight = !!highlight
   const simple = features ?? []
   const base = baseFeatures ?? simple
-  const [isPriceVisible, setIsPriceVisible] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleButtonClick = () => {
     if (!isPriceVisible) {
-      setIsPriceVisible(true)
+      onViewPriceClick?.()
     } else {
       // Handle select plan logic here
       console.log(`Selected ${title} plan`)
